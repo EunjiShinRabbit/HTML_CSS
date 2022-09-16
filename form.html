@@ -1,0 +1,70 @@
+<!-- 폼(form): HTML에서 사용자와 상호작용해서 정보를 입력 받고 서버로 전송하기위한 양식을 의미
+<form action="처리할페이지주소" method="get|post"></form>, action과 method 속성을 함께 사용
+action(누구한테 던져줄거냐?): 폼 요소에서 사용자와 상호작용으로 입력 받은 값들을 전송할 서버의 URL 주소
+method: 입력 받은 값을 서버에 전송 할 때 송신 방식, 속성값으로 get 또는 post를 사용 
+get: 주소에 데이터(data)를 추가하여 전달하는 방식, 데이터가 주소 입력창에 그대로 나타나며, 
+전송할 수 있는 데이터의 크기 또한 제한적, 검색 엔진의 쿼리와 같이 크기가 작고 중요도가 낮은 정보를 보낼 때 주로 사용
+url 뒤에 값들이 막 이어져서 보이는 것이 get 방식, 
+post: 데이터(data)를 별도로 첨부하여 전달하는 방식, 데이터가 외부에 드러나지 않으며, 
+전송할 수 있는 데이터의 크기 또한 제한이 없음, 보안성 및 활용성이 GET 방식보다 좋음
+input 태그: 로그인 페이지의 아이디와 비밀번호처럼 입력받는 요소를 생성할 때 사용
+input 태그 종류
+<input type="text">: 한줄 텍스트를 입력할 수 있는 요소 생성
+<input type="password">: 비밀번호를 입력할 수 있는 요소 생성
+<input type="tel">: 전화번호 형식을 입력할 수 있는 요소 생성
+<input type="number">: 숫자만 입력할 수 있는 요소 생성
+<input type="url">: url 주소 형식을 입력할 수 있는 요소를 생성
+<input type="search">: 검색용 텍스트를 입력할 수 있는 요소 생성 
+<input type="email">: 이메일 형식을 입력할 수 있는 요소 생성
+<input type="checkbox">: 체크박스 요소를 생성
+<input type="radio">: 라디오 버튼 요소를 생성
+<input type="file">: 파일 업로드 요소를 생성
+<input type="button">: 버튼 요소를 생성
+<input type="image" src="이미지주소">: 이미지로 버튼 요소 생성, alt 속성은 사용 X 
+<input type="hidden">: 사용자 눈에 보이지 않는 입력 요소를 생성
+<input type="date">: 날짜(연, 월, 일)을 선택할 수 있는 입력 요소를 생성
+<input type="datetime-local">: 사용자 시간대에 맞는 날짜(연, 월, 일, 시, 분)를 선택할 수 있는 입력 요소 생성
+<input type="month">: 날짜(연,월)를 선택할 수 있는 입력 요소를 생성
+<input type="week">: 날짜(연, 주차)를 선택할 수 있는 입력 요소를 생성
+<input type="time">: 시간을 선택할 수 있는 입력 요소를 생성
+<input type="range">: 숫자 범위를 선택할 수 있는 슬라이드 요소를 생성
+<input type="color">: 색상을 선택할 수 있는 입력 요소를 생성
+<input type="submit">: 폼 전송 역할을 하는 버튼 요소를 생성
+<input type="reset">: 폼 요소에 사용자가 입력한 값을 초기화하는 버튼 요소 생성 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입력 양식 form</title>
+</head>
+<body>
+    <!-- input 태그: 로그인 페이지의 아이디와 비밀번호처럼 입력받는 요소를 생성할 때 사용 
+    <input type="종류" name="이름" value="초기값">, type 속성: 입력된 값에 따라 상호작용 요소의 종류를 결정
+    -->
+    <!-- ctrl+K + ctrl+F 하면 들여쓰기 자동 정렬됨!!!!! -->
+    <label>텍스트 입력<input type="text"></label><br>
+    <label>패스워드 입력<input type="password"></label><br>
+    <label>전화번호 입력<input type="tel"></label><br>
+    <label>숫자 입력<input type="number"></label><br>
+    <label>url 입력<input type="url"></label><br>
+    <label>검색어 입력<input type="search"></label><br>
+    <label>이메일 입력<input type="email"></label><br>
+    <label>체크 박스<input type="checkbox"></label><br>
+    <label>라디오 버튼<input type="radio"></label><br>
+    <label>파일 업로드<input type="file"></label><br>
+    <label>버튼<input type="button"></label><br>
+    <label>이미지 버튼<input type="image" src="/images/happy_kirby.png"></label><br>
+    <label>숨겨진 입력<input type="hidden"></label><br>
+    <label>날짜 입력<input type="date"></label><br>
+    <label>날짜 입력(로컬)<input type="datetime-local"></label><br>
+    <label>날짜 입력(월)<input type="month"></label><br>
+    <label>날짜 입력(주)<input type="week"></label><br>
+    <label>시간 입력<input type="time"></label><br>
+    <label>범위 입력<input type="range"></label><br>
+    <label>색상 입력<input type="color"></label><br>
+    <label>제출<input type="submit"></label><br>
+    <label>리셋<input type="reset"></label><br>
+</body>
+</html>
