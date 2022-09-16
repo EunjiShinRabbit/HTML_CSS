@@ -1,14 +1,138 @@
+<!-- 웹페이지는 기본으로 첫번째 메인페이지가 index.html
+HTML(HyperText Markup Language): 웹의 구조를 담당, hypertext 링크를 타고 다닌다는(문서를 이동한다는) 의미
+html 태그는 태그 이름을 <>로 감싸서 표현, <태그>내용</태그>
+빈태그(empty tag): <img> <br> <hr> 등과 같이 종료 태그 없이 시작 태그만을 가지는 태그 
+<html> </html> 문서의 전체 범위를 브라우저에게 알려 줌 
+CSS(Cascading Style Sheets): HTML이나 XML로 작성된 문서의 표시 방법을 기술하기 위한 스타일 시트 언어
+웹의 시각적인 표현을 담당, 요소가 화면에 어떻게 렌더링 되어야 하는지 지정하기 위한 목적
+JavaScript: 웹의 동적 처리를 당당, 페이지를 동적으로 꾸며주는 역할을 하는 프로그래밍 언어
+웹 사이트 개발 시 리액트와 뷰 같은 자바스크립트 프레임워크가 사용됨
+React: UI를 개발하는데 사용되는 오픈 소스 자바스크립트 라이브러리, SPA를 기본으로 하며, Virtual DOM을 활용
+SPA(Single Page Application): 서버로 부터 완전한 새로운 페이지를 불러오지 않고 현재 페이지를 동적으로 다시 작성 
+DOM(Document Object Model): XML이나 HTML 문서에 접근하기 위한 일종의 인터페이스, 
+문서 내의 모든 요소를 정의하고, 각각의 요소에 접근하는 방법을 제공
+SSR(Server Side Rendering): 서버로부터 완전하게 만들어진 html파일을 받아와 페이지 전체를 렌더링 하는 방식(servlet, jsp 등)
+CSR(Client Side Rendering): 사용자의 요청에 따라 필요한 부분만 응답 받아 렌더링 하는 방식(요즘 추세)
+
+html의 기본 구조 1)DTD(문서형 정의) 2)html(html문서의 시작과 끝) 3)head(문서 정보 정의) 4)body(웹브라우저에 표시할내용)
+DTD (Document Type Definition): 웹브라우저가 처리할 HTML 문서가 어떤 문서 형식을 따라야 하는지 알려 줌
+HTML5 이후로 항상 <!DOCTYPE html>로 작성
+head 태그: HTML 문서의 메타데이터를 정의하는 영역, 보통 meta, title, link, style, script 등의 태그를 사용해 HTML 문서의 여러 정보를 정의
+메타데이터란 HTML 문서에 대한 정보,웹 브라우저에는 직접 노출 되지 않음
+meta 태그: 메타데이터를 정의하는데 사용, 문서의 정보를 검색 엔진에 전달하는 역할
+문자 집합을 정의: <meta charset="UTF-8">, 
+인터넷 익스플로러의 레더링 엔진을 강제로 최신 렌더링 엔진으로 지정: <meta http-equiv="X-UA-Compatible" content="IE=edge">
+기기의 화면 너비에 맞추기: <meta name="viewport" content="width=device-width, initial-scale=1.0">
+검색 엔진에 정보 전달(사이트에 대한 정보를 메타데이터로 저장해놓으면, 검색 엔진이 읽어서 활용)
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Starbucks" />
+<meta property="og:title" content="Starbucks Coffee Korea" />
+<meta property="og:description" content="스타벅스는 세계에서 가장 큰 다국적 커피 전문점으로, 64개국에서 총 23,187개의 매점을 운영하고 있습니다." />
+<meta property="og:image" content="./images/starbucks_seo.jpg" />
+<meta property="og:url" content="https://starbucks.co.kr" />
+title 태그: title 태그는 HTML 문서의 제목을 지정하는데 사용, <title>My First Web Page !</title>
+블록 요소와 인라인 요소
+
+body 태그에서 사용하는 태그 중에서 웹 브라우저의 공간 유무에 상괍없이 
+블록요소: h1태그나 p태그처럼 사용할 때 마다 줄 바꿈이 적용되는 태그로 작성한 코드
+인라인요소: 블록요소와 반대로 a 태그나 span 태그처럼 공간이 부족할 때만 줄 바꿈되는 태그로 작성한 코드
+
+엔티티(Entity): HTML 예약어(reserved characters)를 기존에 사용하던 의미 그대로 사용하기 위해 별도로 만든 문자셋
+문자셋(Character set): 웹 브라우저가 HTML 문서를 정확하게 나타내기 위해서는 해당 문서가 어떠한 문자셋으로 저장되었는지 알아야 함
+따라서 HTML 문서가 저장될 때 사용된 문자셋에 대한 정보를 <head>태그 내의 <meta>태그에 명시
+문자셋의 종류 1) ASCII : 가장 처음 만들어진 문자셋, 인터넷에서 사용할 수 있는 127개의 영문자와 숫자
+2) ANSI : 윈도우즈에서 만든 문자셋, 총 256개의 문자 코드를 지원
+3) ISO-8859-1 : 256개의 문자 코드를 지원하는 HTML4의 기본 문자셋
+4) UTF-8 : 세상에 있는 거의 모든 문자를 표현할 수 있는 유니코드 문자를 지원하는 HTML5의 기본 문자셋
+ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Document</title> 
 </head>
 <body>
+    <!-- 글자 한두자 치고 tab 누르면 태그 자동으로 나옴!!! -->
     <p>배고프다집가고싶다~~~~~</p>
-    <p>배고프다집가고싶다~~~~~</p>
-    <p>배고프다집가고싶다~~~~~</p>
+    <p>배 고 프 다 집 가 고 싶 다~~~~~</p>
+    <!-- 문자의 공백은 몇개를 입력하던 한개만 인식하므로 공백을 추가하기 위해서는 특수기호 &nbsp; 이용 -->    
+    <p>배&nbsp;  고&nbsp;  프&nbsp;  다&nbsp;  집  가  고  싶  다~~~~~</p>
+    <!-- 속성: 태그에 의미나 기능을 보충하는 역할 <테그명 속성명 = "속성값"> -->
+    <!-- html 스타일: <태그이름 style = "속성이름:속성값"> -->
+    <p style="background-color: bisque; color:blueviolet">
+    배&nbsp;  고&nbsp;  프&nbsp;  다&nbsp;  집  가  고  싶  다~~~~~</p>
+
+    <!-- HTML 필수 태그
+    제목(Heading): 제목을 표현할 수 있는 다양한 크기의 <h>태그, <h1>가 가장 크고 <h6>가 가장 작다 -->
+    <h1>제목1의 크기입니다!</h1>
+    <h2>제목2의 크기입니다!</h2>
+    <h3>제목3의 크기입니다!</h3>
+    <h4>제목4의 크기입니다!</h4>
+    <h5>제목5의 크기입니다!</h5>
+    <h6>제목6의 크기입니다!</h6>
+    <!-- 단락(Paragraph): 문단, <p>태그를 이용하여 단락을 표현 
+    <p>태그의 위아래로는 약간의 여백(margin)이 자동으로 삽입됨
+    HTML은 모든 명령이나 지시를 태그로 처리 해야하기 때문에, p태그 사이에 줄바꿈 넣어도 줄바꿈되어 출력되지 않음 -->
+    <p>단락 1 입니다!</p>
+    <p>단락 2 입니다!!</p>
+    <!-- 연습문제 만들기 예제 -->
+    <h1>레드향</h1>
+    <p>껍질에 붉은 빛이 돌아 레드향이라 불린다.</p>
+    <p>레드향은 한라봉과 귤을 교배한 것으로 일반 귤보다 2~3배 크고, 과육이 붉고 통통하다.</p>
+    <p>비타민 C와 비타민 D가 풍부해 혈액 순환, 감기 예방 등에 좋은 것으로 알려져 있다.</p>
+    <h2>레드향 샐러드 레시피</h2>
+    <h2>상품 구성</h2>
+    <!-- 짧은 인용 태그 <q>인용문</q> 자동으로 앞뒤에 큰따옴표 붙음 -->
+    <p>레드향은 <q>엄청 맛있다!!</q></p>
+    <!-- 길이가 긴 인용 태그 <blockquote>인용문</blockquote> 들여쓰기를 한 것처럼 그려짐 -->
+    <blockquote>레드향은 말랑말랑</blockquote>
+    <!-- 텍스트를 굵게 표시: <strong>이나 <b>태그를 사용 (차이: strong는 강조이기 때문에, 웹 접근성에서 다름)-->
+    <p>레드향 말랑말랑 <b>말랑말랑</b> <strong>말랑말랑</strong></p>
+    <!-- 텍스트를 기울여서 표시: <em>나 <i>태그를 사용 -->
+    <p>레드향 말랑말랑 <i>말랑말랑</i> <em>말랑말랑</em></p>
+    <!-- 띄어쓰기와 줄 나누기: 줄바꿈 <br>, 여러칸의 공백 특수기호 &nbsp; -->
+    <p>레드향 말랑말랑 말 랑 말 랑<br>말 랑 말랑말랑 말랑 말랑</br></p>
+    <!-- 수평 가로 구분선: 내용상의 구분 표현 <hr> horizontal rule -->
+    <p>단락 1과 단락2를</p>
+    <hr>
+    <p>구분하는 가로 구분선!!</p>
+    <!-- <del>: 기존에 있는 텍스트가 삭제된 텍스트(줄그어짐 표시), <ins>: 새로 추가된 텍스트(밑줄 표시) -->
+    <p>여름을 맞이하여 레드향을 할인된금액(정가<del>36,000원</del><ins>20,000원</ins>)에 판매 합니다.</p>
+    <!-- <del>은  삭제된 텍스트, 즉 이미 없어진 텍스트를 정의 <s>는 잘못된 텍스트를 강조 -->
+    <p><s>레드향은 딱딱해!</s> 레드향은 말랑말랑해!!</p>
+    <!-- <sub>: 아래 첨자, <sup>: 위 첨자 -->
+    <p>공기의 원소 기호는 H<sub>2</sub>O 입니다.</p>
+    <p>4<sup>2</sup>은 16입니다. </p>
+
+    <!-- HTML 공간 분할, div 태그와 span 태그로 수행
+    block 타입의 요소, 언제나 새로운 라인(line)에서 시작하며, 해당 라인의 모든 너비를 차지
+    <p>, <div>, <h1~6>, <ul>, <ol>, <form> 등 -->
+    <p style="border: 3px solid violet"> p요소는 display 속성값이 블록인 요소입니다.</p>
+    <!-- 공간분할의 대표적인 요소인 div 태그 사용과 범위 확인 -->
+    <div class="movie">
+        <p>영화 소개</p>
+        <p>영화를 소개하는 페이지입니다.</p>
+      </div>
+      <div class="tv"> 
+        <!-- class를 주는건 CSS에서 스타일을 적용하기 위해서 사용 -->
+        <p>TV 프로그램 소개</p>
+        <p>TV 프로그램을 소개하는 페이지입니다.</p>
+      </div>
+    <div style="background-color:aliceblue; color: indigo; text-align:center">
+        <h1>div요소를 이용한 스타일 적용</h1>
+        <p>이렇게 div요소로 여러 요소들을 묶은 다음에 style 속성과 클래스 등을 이용하여
+        한 번에 스타일을 적용할 수 있습니다.</p>
+    </div>
+    <!-- inline 타입의 요소, 새로운 라인(line)에서 시작하지 않음, 
+    요소의 너비도 해당 라인 전체가 아닌 해당 HTML 요소의 내용(content)만큼만 차지 
+    <span>, <a>, <image> 등 -->
+    <p>
+        <span style="background-color:salmon; color:white">
+            span태그
+        </span>는 display 속성값이 인라인인 요소입니다.
+        <br>span요소로 텍스트의 일부분만을 따로 묶은 후에 스타일을 적용할 수 있습니다
+    </p>
 </body>
 </html>

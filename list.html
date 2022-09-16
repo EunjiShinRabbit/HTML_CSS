@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>리스트 만들기</title>
+</head>
+<body>
+    <!-- 리스트(list)란 여러 요소들을 일렬로 나열한 목록이나 명단을 의미
+    1) 순서가 없는 리스트(unordered list) <ul 태그>
+    2) 순서가 있는 리스트(ordered list) <ol 태그>
+    3) 정의 리스트(definition list) 
+    unordered list <ul> 
+    각각의 리스트 요소는 <li> 태그로 시작, 각각의 리스트 요소 앞에는 기본 마커로 bullet(검정색 작은 원)이 표시 -->
+    <h2>판매 중인 과일</h2>
+    <ul>
+        <li>딸기</li>
+        <li>멜론</li>
+        <li>바나나</li>
+    </ul>
+    <!-- ordered list <ol> 
+    각각의 리스트 요소는 <li> 태그로 시작, 각각의 리스트 요소 앞에는 기본 마커로 아라비아 숫자가 표시 -->
+    <h2>귀여운 소동물</h2>
+        <ol>
+        <li>햄스터</li>
+        <li>기니피그</li>
+        <li>토끼</li>
+        <li>다람쥐</li>
+    </ol>
+    <!-- 연습문제 만들기 -->
+    <h2>레드향 샐러드 레시피</h2>
+    <p><b>재료</b> : 레드향 1개, 아보카도 1개, 토마토 1개, 샐러드 채소 30g</p>
+    <p><b>드레싱</b> : 올리브유 1큰술, 레몬즙 2큰술, 꿀 1큰술, 소금 약간</p>
+    <ol><li>샐러드 채소를 씻고 물기를 제거한 후 준비합니다.</li>
+    <li>레드향과 아보카도, 토마토를 먹기 좋은 크기로 썰어둡니다.</li>
+    <li>드레싱 재료를 믹서에 갈아줍니다.</li>
+    <li>볼에 샐러드 채소와 썰어둔 레드향, 아보카도, 토마토를 넣고 드레싱을 뿌리면 끝!</li></ol>
+    <!-- <dl>: 정의형 목록(용어와 용어 설명을 나열한 형태의 목록)을 만들 때 사용 -->
+    <dl>
+        <dt>HTML</dt>
+        <dd>HTML은 Hyper Text Markup Language의 약자로 웹 문서의 구조를 설계하기 위한 목적으로 개발된 언어입니다.</dd>
+        <dt>CSS</dt>
+        <dd>CSS는 Cascading Style Sheets의 약자로 웹 문서를 꾸미기 위한 목적으로 개발된 언어입니다.</dd>
+    </dl> 
+    <!-- 링크(문서와 문서 간 연결) 기본으로 <a> 태그 사용, 사진과 같은 이미지 객체는 <img> 
+    <a>: HTML에서 내부나 외부 링크를 생성, <a> 태그는 대상 경로를 의미하는 href 속성을 필수로 사용
+    <a href="대상 경로" target="링크 연결 방식" title="링크 설명"></a> 
+    1)외부 경로 2)내부 경로, 대상 경로가 명확하지 않을때 <a href=”#”>링크</a> 
+    target 속성: 링크로 연결된 문서를 어디에서 열지를 명시
+    1) _blank: 링크로 연결된 문서를 새 창이나 새 탭애서 오픈 
+    2) _self: 링크로 연결된 문서를 현재 frame에서 오픈(default)
+    3) _parent: 링크로 연결된 문서를 부모 frame에서 오픈 
+    4) _top: 링크로 연결된 문서를 현재 창의 가장 상위 frame(웹브라우저 전체 창)에서 오픈 
+    5) 프레임이름: 링크로 연결된 문서를 지정된 프레임에서 오픈 -->
+    <a href="https://www.naver.com/" title="네이버로 이동">네이버<br></a>
+    <!-- <a href=“URL”>
+    절대 주소 : “a href=“http://naver.com”
+    상대 주소 : “a href=”/lectute/logo.png”
+    같은 페이지 내에서 명시된 id를 가진 요소 연결 : “a href=#bottom”
+    자바스크립트 : “a href=”javascript:alert(”반갑습니다!!”)” -->
+    <!-- 이미지(image): 2차원 평면 위에 그려진 시각적 요소를 의미
+    주로 사용되는 이미지의 종류: jpeg, gif, png, svg 
+    <img src=”이미지 경로" alt=”이미지 설명(엑박뜰때 문구ㅋㅋ)"> 
+    ./ 현재 폴더 (생략 가능), ../ 상위 폴더 -->
+    <img src="/happy_kirby.png" alt="해피 커비", style="background-color: aliceblue;">
+    <!-- img 태그를 a 태그 안에 사용하면 이미지를 클릭 했을 때 특정 링크로 이동하게 할 수 있음 -->
+    <a href="https://kirby.nintendo.com/", target="_blank"><img src="/kirby_face.png" alt="커비 얼굴"></a>
+</body>
+</html>
