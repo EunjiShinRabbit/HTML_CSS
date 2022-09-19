@@ -1,81 +1,86 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>테이블 만들기</title>
-    <style>
-        table{
-          border: 3px solid pink;
-          text-align: center;
-        }
-        th, td{
-          border:1px solid pink;
-        }
-        th{
-            background-color: aliceblue
-        }
-        caption{
-            background-color: rgb(207, 231, 252);
-            font-size: 1.2em;
-        }
-      </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>테이블 만들기</title>
+  <style>
+    table {
+      border: 3px solid pink;
+      text-align: center;
+    }
+
+    th,
+    td {
+      border: 1px solid pink;
+    }
+
+    th {
+      background-color: aliceblue
+    }
+
+    caption {
+      background-color: rgb(207, 231, 252);
+      font-size: 1.2em;
+    }
+  </style>
 </head>
 <body>
-    <!-- table는 행, 열, 셀로 이루어짐, 표의 시작과 끝을 알려주는 <table>과 </table> 태그
-    웹 접근성을 향상하는 방법의 하나로 표 제목을 지정, caption 태그로 지정 
-    tr(table row)태그: 표에서 행을 생성, 행을 여러 개 만들고 싶다면 tr 태그를 여러 번 사용
-    th(table header)태그, td(table data) 태그: 표에서 열을 생성 할 때 사용 
-    rowspan과 colspan 속성
-    rowspan: 행과 행을 병합할 때, colspan: 열과 열을 병합할 때
-     -->
-    <table>
-        <caption>표의 제목</caption>
-        <colgroup>
-            <col>
-            <col style="background-color:rgb(255, 245, 243);">
-            <col style="background-color:rgb(255, 223, 233);">
-            <col style="background-color:rgb(255, 216, 233);">
-          </colgroup>
-        <tr>
-            <th>동물</th>
-            <th>색</th>
-            <th>울음소리</th>
-            <th>특징</th>
-        </tr>
-        <tr>
-            <td>고양이</td>
-            <td>하늘색</td>
-            <td>야옹</td>
-            <td rowspan="2">따끈 포근</td>
-        </tr>
-        <tr>
-            <td>토끼</td>
-            <td>분홍색</td>
-            <td>새근</td>
-            <!-- 2행 4열은 1행 4열과 병합했으므로 생성하지 않음 -->
-        </tr>
-        <tr>
-            <td>유니콘</td>
-            <td colspan="3">정보 없음</td>   
-            <!-- 3행 2열부터 열 3개를 병합했으므로 나머지 열은 생성하지 않음 -->
-        </tr>
-    </table>
-    <!-- 표에서도 행을 묶어 그룹화 할 수 있음, thead, tfoot, tbody 태그를 사용
-    표의 구조를 지정하며 시각장애인을 위한 스크린 리더기를 통해 표를 쉽게 이해 할 수 있도록 할 수 있음 -->
-    <!-- <col> 태그와 <colgroup> 태그: 표에서 열을 그룹화할 때 사용
-    <col> 태그: 하나의 열을 그룹화, <colgroup> 태그:  span 속성과 함께 사용해 2개 이상의 열을 그룹화
-    특정열에 배경색을 넣거나 너비를 바꾸려면 원하는 열을 선택 할 수 있어야 하는데 이럴 때 사용하는 태그 -->
+  <!-- table는 행, 열, 셀로 이루어짐, 표의 시작과 끝을 알려주는 <table>과 </table> 태그
+  웹 접근성을 향상하는 방법의 하나로 표 제목을 지정, caption 태그로 지정 
+  tr(table row)태그: 표에서 행을 생성, 행을 여러 개 만들고 싶다면 tr 태그를 여러 번 사용
+  th(table header)태그, td(table data) 태그: 표에서 열을 생성 할 때 사용 
+  rowspan과 colspan 속성
+  rowspan: 행과 행을 병합할 때, colspan: 열과 열을 병합할 때
+    -->
+  <table>
+    <caption>표의 제목</caption>
+    <colgroup>
+      <col>
+      <col style="background-color:rgb(255, 245, 243);">
+      <col style="background-color:rgb(255, 223, 233);">
+      <col style="background-color:rgb(255, 216, 233);">
+    </colgroup>
+    <tr>
+      <th>동물</th>
+      <th>색</th>
+      <th>울음소리</th>
+      <th>특징</th>
+    </tr>
+    <tr>
+      <td>고양이</td>
+      <td>하늘색</td>
+      <td>야옹</td>
+      <td rowspan="2">따끈 포근</td>
+    </tr>
+    <tr>
+      <td>토끼</td>
+      <td>분홍색</td>
+      <td>새근</td>
+      <!-- 2행 4열은 1행 4열과 병합했으므로 생성하지 않음 -->
+    </tr>
+    <tr>
+      <td>유니콘</td>
+      <td colspan="3">정보 없음</td>
+      <!-- 3행 2열부터 열 3개를 병합했으므로 나머지 열은 생성하지 않음 -->
+    </tr>
+  </table>
+  <!-- 표에서도 행을 묶어 그룹화 할 수 있음, thead, tfoot, tbody 태그를 사용
+  표의 구조를 지정하며 시각장애인을 위한 스크린 리더기를 통해 표를 쉽게 이해 할 수 있도록 할 수 있음 -->
+  <!-- <col> 태그와 <colgroup> 태그: 표에서 열을 그룹화할 때 사용
+  <col> 태그: 하나의 열을 그룹화, <colgroup> 태그:  span 속성과 함께 사용해 2개 이상의 열을 그룹화
+  특정열에 배경색을 넣거나 너비를 바꾸려면 원하는 열을 선택 할 수 있어야 하는데 이럴 때 사용하는 태그 -->
 
-    <!-- 멀티미디어(오디오, 비디오) 설정
-    웹 브라우저마다 지원하는 오디오 포맷이 다르기 때뮨에 코드 작성 전 지원여부 확인 필요
-    <audio src="오디오 경로" controls></audio>, <video src="비디오 경로" controls width="700"></video>
-    controls 를 넣어야 실행버튼이 나옴 -> audio, video 태그의 속성 
-    controls: 플레이어 화면에 컨트롤 바를 표시, autoplay: 오디오나 비디오를 자동 실행
-    loop: 오디오나 비디오를 반복 재생, muted: 오디오나 비디오의 소리 제거
-    width, height: 비디오 플레이어 화면 크기 지정 -->
-    <audio src="medias/kirby_opening.mp3" controls></audio>
-    <video src="medias/kirby_game.mp4" autoplay loop muted width="700"></video>
+  <!-- 멀티미디어(오디오, 비디오) 설정
+  웹 브라우저마다 지원하는 오디오 포맷이 다르기 때뮨에 코드 작성 전 지원여부 확인 필요
+  <audio src="오디오 경로" controls></audio>, <video src="비디오 경로" controls width="700"></video>
+  controls 를 넣어야 실행버튼이 나옴 -> audio, video 태그의 속성 
+  controls: 플레이어 화면에 컨트롤 바를 표시, autoplay: 오디오나 비디오를 자동 실행
+  loop: 오디오나 비디오를 반복 재생, muted: 오디오나 비디오의 소리 제거
+  width, height: 비디오 플레이어 화면 크기 지정 -->
+  <audio src="medias/kirby_opening.mp3" controls></audio>
+  <video src="medias/kirby_game.mp4" autoplay loop muted width="700"></video>
 </body>
 </html>
