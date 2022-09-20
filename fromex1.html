@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>폼 예제 1</title>
+  <style>
+    div.left{
+      margin-top: 5%;
+      margin-left: 5%;
+      margin-bottom: 5%;
+      min-width: 70px;
+      float: left;
+      width: 10%;
+    }
+    div.right{
+      margin-top: 5%;
+      margin-right: 5%;
+      margin-bottom: 5%;
+      float: right;
+      width: 70%;
+    }
+    input.ipad{
+      width: 50%;
+    }
+
+  </style>
+</head>
+<body>
+  <form action="#">
+    <fieldset>
+      <p><h1>프론트엔드 개발자 지원서</h1></p>
+      <p><h3>HTML, CSS, Javascript에 대한 기술적 이해와 경험이 있는 분을 찾습니다.</h3></p>
+      <hr>
+      <fieldset style="border: 0;">
+        <legend>개인정보</legend>
+        <label for="name">이름</label>
+        <input type="text", name="name", id="name", placeholder="공백없이 입력하세요"><br>
+        <label for="tel">연락처</label>
+        <input type="tel" name="tel" id="tel">
+      </fieldset>
+      <fieldset style="border: 0;">
+        <legend>지원분야</legend>
+        <label for="웹퍼블리싱">웹 퍼블리싱</label>
+        <input type="radio" name="dept", id="웹퍼블리싱"><br>
+        <label for="웹어플개발">웹 애플리케이션 개발</label>
+        <input type="radio" name="dept", id="웹어플개발"><br>
+        <label for="개발환경개선">개발 환경 개선</label>
+        <input type="radio" name="dept", id="개발환경개선"><br>
+      </fieldset>
+      <fieldset style="border: 0;">
+        <legend>지원동기</legend>
+        <!-- <label for="motive">지원동기</label> -->
+        <textarea id="motive" name="motive", cols="60", rows="5", placeholder="본사 지원 동기를 간략히 써 주세요."></textarea>
+      </fieldset>
+      <button type="submit">접수하기</button>
+      <button type="reset">다시 쓰기</button>
+    </fieldset>
+  </form>
+  <h1>아이패드 주문하기</h1>
+  <form action="#">
+    <fieldset>
+      <legend style="font-weight: bold;">배송 정보</legend>
+      <div class="left">
+        <label for="product">주문 상품</label><br>
+        <label for="pname">이름</label><br>
+        <label for="paddress">배송 주소</label><br>
+        <label for="pmail">이메일</label><br>
+        <label for="ptel">연락처</label><br>
+        <label for="pdate">배송 지정</label><br>
+      </div>
+      <div class="right">
+        <input class="ipad", type="text", id="product", name="product", value="아이패드 12.9인치", readonly><br>
+        <input class="ipad", type="text" name="pname" id="pname"><br>
+        <input class="ipad", type="text" name="paddress" id="paddress", required><br>
+        <input class="ipad", type="email" name="pmail" id="pmail"><br>
+        <input class="ipad",type="tel" name="ptel" id="ptel", placeholder="하이픈 빼고 입력해주세요.(01012345678)"><br>
+        <span style="display:block; width:50%;"><input type="date" name="pdate" id="pdate">(주문일로부터 최소 3일 이후)</span>
+      </div>
+    </fieldset>
+    <div style="text-align: center;">
+      <button type="submit">주문하기</button>
+      <button type="reset">취소하기</button>
+    </div>
+  </form>
+  <form action="#">
+    <fieldset>
+      <legend>로그인</legend>
+      <button><img src="images/kirby_face.png"></button>
+    </fieldset>
+    <p>or</p>
+    <fieldset>
+      <legend>일반 로그인</legend>
+      <p><input type="text" name="username", placeholder="Username"></p>
+      <p><input type="text" name="userpwd", placeholder="Password"></p>
+      <button type="submit">LOGIN</button>
+    </fieldset>
+  </form>
+  <p><a href="#">Forgot your password?</a></p>
+  <h1>목차</h1>
+  <ol>
+    <li>
+      <a href="#">역사</a>
+      <ol>
+        <li><a href="#">개발</a></li>
+        <li><a href="#">최초 규격</a></li>
+        <li><a href="#">표준 버전의 역사</a>
+          <ol>
+            <li><a href="#">HTML 버전 스케줄</a></li>
+            <li><a href="#">HTML 초안 버전 스케줄</a></li>
+            <li><a href="#">XHTML 버전</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li>
+      <a href="#">마크업</a>
+      <ol>
+        <li><a href="#">HTML 요소</a></li>
+        <li><a href="#">데이터 형식</a></li>
+        <li><a href="#">문서 형식 선언</a></li>
+      </ol>
+    </li>
+  </ol>
+</body>
+</html>

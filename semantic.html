@@ -1,0 +1,227 @@
+<!-- 시멘틱(Semantic) 태그: 의미가 있는 태그, Semantic은 '의미의', '의미론적인'이라는 뜻을 가진 형용사
+div나 span과 같이 의미가 없는 태그는 태그 이름만 보고는 어떤 내용인지 전혀 유추할 수가 없는 반면, 
+form, table, article 등 의미가 있는 태그는 내용을 명확하게 정의
+헤더에는 사이트 제목이나 로고가 있고, 본문 영역과 그 외의 내용을 나타내는 사이드 바, 푸터 영역 등이 있음
+시맨틱 태그가 필요한 이유? 웹 문서는 시맨틱 태그를 사용하지 않더라도 만들 수 있음
+1) 웹브라우저가 HTML의 소스 코드만 보고도 제목과 본문 등을 쉽게 구분 할 수 있음
+2) 시각장애가 있는 사용자가 스크린 리더를 사용하여 페이지를 탐색할 때 도움이 됨
+3) 시맨틱 태그를 사용한 코드 블록을 찾는 것은 끝없는 div(div > div > div ...)를 탐색하는 것보다 훨씬 쉬움
+4) 의미가 있는 요소는 개발자 모두에게 명확한 의미를 전달함 
+시멘틱 태그 종류
+1) header: 페이지의 제목과 같은 소개 내용을 포함, 
+일반적으로 heading 태그나 로고 또는 아이콘, 저작권 정보, 검색 양식, 작성자 이름 등을 포함
+2) nav: 보통 메뉴, 목차 등에 사용되며, 웹 페이지에서 내부의 다른 영역이나 외부를 연결하는 링크 영역을 구분하는데 사용
+3) section: 웹 페이지에서 논리적으로 관련 있는 내용 영역을 구분할 때 사용,
+보통 section 태그는 내용의 제목을 나타내는 hn 태그 중 하나를 포함
+4) article: 웹 페이지에서 독립적인 영역을 구분할 때 사용, 주제와 상관없이 독립적으로 사용 가능한 것
+section 태그는 웹 페이지 안에서 관련 있는 내용을 구분하고, 
+article 태그는 어떤 웹 페이지든 독립적으로 사용할 수 있는 영역을 구분
+5) aside: 본문 내용 외에 왼쪽이나 오른쪽, 혹은 아래쪽에 사이드 바를 만듦
+보통 웹 사이트에서 사이드바는 필수 요소가 아니므로 필요할 경우에만 사용
+6) main: 웹 페이지의 주요 내용을 지정할 때 사용하는 태그, 
+main 태그에는 문서에서 반복해서 등작하는 요소를 포함해서는 안됨
+그리고 main 태그를 article, aside, footer, header, nav 태그의 하위에 포함 할 수 없음
+7) footer: 일반적으로 섹션의 작성자에 대한 정보, 저작권 데이터 또는 관련 문서에 대한 링크를 포함
+
+태그 종류에 상관없이 사용하는 글로벌 속성
+HTML 언어에서 태그는 각 태그에서 사용할 수 있는 속성이 정해져 있음 하지만
+예외적으로 태그 종류에 상관없이 모든 태그에서 공통으로 사용할 수 있는 속성이 있는데, 이것이 바로 글로벌 속성
+글로벌 속성의 종류
+1) class 속성: 값 value, 요소에 클래스 값을 지정, 클래스 값은 CSS에서 클래스 선택자로 활용
+2) id: 값 value, 요소에 아이디 값을 지정, 클래스 값은 CSS에서 아이디 선택자로 활용
+클래스는 중복되어도 되지만 id는 중복되면 안됨
+3) style: 값 style. 요소에 인라인 스타일을 지정
+4) title: 값 text, 요소에 추가 정보를 지정, 마우스를 요소 위에 올리면 툴팁으로 추가 정보 표시 
+5) lang: 값 language code, 요소에 사용한 텍스트의 언어 정보를 지정
+6) hidden: 값 hidden, 요소를 화면에서 감춤
+7) data-*: 값 value, 사용자가 임의의 속성을 만들 수 있음
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>시맨틱 태그</title>
+  <style>
+    *{ /* 전체 영역을 의미 */
+      margin: 0 auto; /* 마진 리셋 */
+      padding:0;   /* 패딩 리셋 */
+      box-sizing: border-box;   /* border 영역까지를 전체 사이즈로 생각하겠다(계산하기 편하게 하기 위헤) */ 
+    }
+    a{
+      text-decoration:none;  /* 텍스트 링크 밑줄 없애기 */ 
+    }
+    ul{
+      list-style: none;
+    }
+    #container{
+      margin: 0 auto; 
+      width: 1200px;
+      background-color: aliceblue;
+    }
+    header{
+      width: 100%; /* 너비 */
+      height: 100px; /* 높이 */
+      background-color: pink;
+    }
+    #logo{
+      float: left; /* 왼쪽으로 플로팅 */
+      width: 250px;
+      height: 100px; 
+      line-height: 100px; /* 세로로 중간에 맞춤 - 줄간격을 높이 값과 같게 */
+      padding-left: 20px;
+    }
+    #logo h1 {
+      font-weight:700;
+      font-size:30px;   /* 글자 크기 */
+      color:#fff;   /* 글자 색*/
+      text-shadow:0 -1px 0 #222;  /* 그림자 색 */
+    }
+    nav{  
+      float:right;   /* 오른쪽으로 플로팅 */
+      width:900px;   /*   너비 */  
+      height:100px;   /* 메뉴 영역 높이 */  
+      padding-top:40px;  /* 메뉴를 아래로 내리기 위해 */  
+    }
+    #topMenu {  
+      height:60px; 
+    }
+    #topMenu > li {
+      float:left;  /* 메뉴 항목을 왼쪽으로 플로팅 */ 
+      position: relative;  
+    }
+    #topMenu > li > a{
+      display:block;  /* 링크 텍스트는 블록으로(자리 차지를 하겠다) */ 
+      font-size:1.1em;
+      color: skyblue;  /* 글자 색 */
+      font-weight:600;  /* 글자 굵기 */
+      padding:20px 60px;  /* 패딩 */ 
+    }
+    #topMenu > li > a:hover {
+      color:#1fa8f8;
+    }
+    .contents {
+      width:1000px;
+      margin:50px auto;  
+    }
+    main > section {
+      margin-top:60px;  
+    }
+    main h2 {    
+      font-size:1.5em;
+      line-height: 2.5;
+    }
+    main div {
+      margin-top:20px;
+    }
+    main h3 {
+      font-size:1.2em;
+      line-height:2.2;
+    }
+    .detail p {
+      line-height: 2.0;
+      color:#222;
+    }
+    .detail > img {
+      float:left; 
+      margin-right:50px;
+      border-radius:20px;
+    }
+    .schedule h4 {
+      font-size:1.2em;
+    }
+    .schedule ul {
+      list-style: none;
+    }
+    .schedule ul li { 
+      line-height: 2;
+    }
+    footer{   
+      width:1200px;   /* 너비 */
+      height:100px;  /* 높이 */
+      border-top:2px solid rgb(255, 201, 228);
+    }
+    #bottomMenu{
+      width:100%;
+      height:20px;
+      margin-left:60px;
+    }
+    #bottomMenu ul {
+      margin-top:15px;  
+    }
+    #bottomMenu ul li{
+      float:left;  /* 가로로 배치 */ 
+      padding:5px 20px;
+      border-right:1px solid #ddd;   /* 항목 오른쪽에 테두리 */ 
+    }
+    #bottomMenu ul li:last-child{
+      border:none;  /* 마지막 항목에는 오른쪽 테두리 없음 */  
+    }
+    #bottomMenu ul li a, #bottomMenu ul li a:visited {  
+      font-size:15px;  /* 글자 크기 */ 
+      color:#666;   /* 글자 색 */ 
+    }
+
+  </style>
+</head>
+<body>
+  <div id="container">
+    <header>
+      <div id="logo">
+        <a href="#">
+          <h1>Kirby Dream</h1>
+        </a>
+      </div>
+      <nav>
+        <ul id="topMenu">
+          <li><a href="#">단체 여행</a></li>
+          <li><a href="#">맞춤 여행</a></li>
+          <li><a href="#">갤러리</a></li>
+          <li><a href="#">문의하기</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="contents">
+      <section id="kiby">
+        <h2>말랑말랑 귀여운 커비</h2>
+        <div class="detail">
+          <img src="images/rolling_kirby.gif">
+          <p><b>핑크색의 동그란 커비를 소개합니다</b></p>
+          <p>무엇이든 빨아들이는 동그란 커비는 말랑말랑 
+            탁 트인 바다, 시원한 바람에 몸을 맡기고 뚜벅뚜벅 오름을 오르고 올렛길을 걷다보면 온전히 나에게 집중할 수 있습니다</p>
+        </div>
+        <div class="schedule">
+          <h3>상세 정보</h3>
+          <ul>
+            <li>사이즈 : 20 * 20</li>
+            <li>색상 : (색상은 상담을 통해 결정 및 조정 가능합니다)</li>
+          </ul>
+        </div>
+      </section>
+      
+      <section id="cinnamon">
+        <h2>보들보들 귀여운 시나모롤</h2>
+        <div class="detail">
+          <img src="images/board_cinamon.gif">
+          <p><b>하얀색 폭신폭신한 시나모롤을 소개합니다</b></p>
+          <p>하늘을 날며 시원한 바다를 내려다보는 패러글라이딩과 투명한 물빛 속을 여행하는 스킨스쿠버... 아름다운 제주 해안도로를 씽씽 전동바이크나 전동킥보드로 달려보세요. 
+            시원한 바다를 가까이에서 느낄 수 있는 요트 체험과 배낚시도 빼놓을 수 없겠죠?</p>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <section id="bottomMenu">
+        <ul>
+          <li><a href="#">회사 소개</a></li>
+          <li><a href="#">개인정보처리방침</a></li>
+          <li><a href="#">여행약관</a></li>
+          <li><a href="#">사이트맵</a></li>
+        </ul>
+      </section>
+    </footer>
+  </div>
+</body>
+</html>
