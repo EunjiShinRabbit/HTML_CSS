@@ -1,0 +1,39 @@
+*{
+  margin: 0 0;
+  color: pink;
+}
+/* 태그 선택자 */
+li{
+  color: skyblue;
+}
+/* 아이디 선택자 */
+#special{
+  color: lemonchiffon;
+}
+/* 클래스 선택자 */
+.red{
+  width: 200px;
+  height: 200px;
+  background-color: aqua;
+}
+button:hover{
+  background-color: violet;
+}
+button:active{
+  background-color: blueviolet;
+}
+a[target="_blank"]{
+  color:rgb(255, 252, 70);
+}
+/* 스타일도 위에서 선언한것 아래에서 재선언하면 아래걸로 들어감 */
+a[href$=".com"]{ 
+  color: rgb(37, 248, 178);
+}
+.red{
+  background-color: rgb(0, 132, 255);
+}
+h1 {      
+  padding:10px;
+  background-color:rgb(183, 129, 255);
+  color:#fff;
+}
