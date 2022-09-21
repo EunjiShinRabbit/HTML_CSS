@@ -48,7 +48,96 @@ overline(텍스트 위에 선을 그음), underline(텍스트 아래에 선을 �
 text-shadow: none or 가로거리 세로거리 번짐정도 색상;
 
 박스 모델을 구성하는 속성 다루기
+1) margin: 요소의 외부 여백, 박스 모델에서 가장 외부에 있는 영역
+margin-top, margin-right, margin-bottom, margin-left가 있고, 모든 방향을 통합해 margin 속성으로 사용
+margin 속성은 속성값을 작성하는 방법에 따라 적용되는 방식이 달라짐
+- 4개를 적으면 순서대로 margin-top, margin-right, margin-bottom, margin-left
+- 3개를 적으면 margin-top, margin-right, margin-bottom의 값이고 생략된 margin-left는 마주 보는 right와 같은 값
+- 2개 적으면 top&bottom 그리고 left&right의 값
+- 1개 적으면 모든 방향 적용
 
+2) border: 요소의 테두리(경계선), margin보다 안쪽에 있으며, margin과 다르게 여러 속성값이 함께 사용
+border:<border-width><border-style><color>
+- border-width: 테두리의 굵기를 지정, 속성값으로 단위를 포함한 크기를 사용
+- border-style: 테두리의 모양을 지정, none(테두리를 그리지 않음), hidden(테두리를 화면에서 감춤), solid(실선), 
+double(이중 실선), dotted(점선), dashed(dotted보다 긴 점선), groove(테두리가 파인 것처럼 그림), 
+ridge(테두리가 튀어나온 것처럼 그림), inset(테두리를 요소가 파인것처럼 그림), outset(요소가 튀어나온것처럼 그림)
+번외) border-collapse: 표(table)의 테두리와 셀(td)의 테두리 사이의 간격을 어떻게 처리할 지 정함
+separate: 표(table)의 테두리와 셀(td)의 테두리 사이에 간격을 둠
+collapse: 표(table)의 테두리와 셀(td)의 테두리 사이의 간격을 없게함, 겹치는 부분은 한 줄로 나타냄
+initial: 기본값으로 설정, inherit: 부모 요소의 속성값을 상속받음
+
+3) padding: 요소의 내부 여백, margin, border 영역보다 안쪽, 
+
+4) content: 요소의 내용, 시작 태그와 종료 태그 사이에 사용된 콘텐츠가 속하는 영역
+- width:
+- height:
+- box-sizing: width, height 속성의 적용 범위를 제한, 박스의 크기를 어떤 것을 기준으로 계산할지를 정하는 속성
+box-sizing: border-box; 테두리영역까지를 전체 사이즈로 생각하겠다(가장 계산하기 편함)
+content-box: 콘텐트 영역을 기준으로 크기를 정함, border-box: 테두리를 기준으로 크기를 정함
+initial: 기본값으로 설정, inherit: 부모 요소의 속성값을 상속
+- border-radius: 요소의 테두리를 둥글게 만들어줌 px단위와 %단위를 사용할 수 있으며, border속성 없이도 사용 가능
+총 4개의 모서리를 각각 다른 값으로도 줄 수 있음 margin, padding속성 처럼 4개의 값을 띄어쓰기 가능
+border-radius: 크기(반지름이 크기만한 원을 그렸다고 생각) or 백분율;
+- box-shadow: box-shadow: none or 수평거리 수직거리 흐림정도 번짐정도 색상 or inset(박스의 내부에 그림자 생김);
+- 수평거레에 양수 넣으면 오른쪽에 그림자 생김, 수직거리에 양수 넣으면 아래에 그림자 생김
+
+- 박스 모델의 성격과 display 속성: 박스 모델도 블록, 인라인, 인라인 블록이라는 성격이 존재
+블록: hn, p, div 태그를 사용했을 때 요소의 너비가 컨텐츠 유무와 상관없이 항상 가로 한줄을 다 차지하는 것
+인라인: a, span, stron 태그 등을 사용 했을 때 요소의 너비를 컨텐츠 크기 만큼만 차지하는 것
+- 블록 vs 인라인 vs 인라인 블록
+블록 성격이나 인라인 블록 성격은 witdh, height, margin, padding 속성이 전부 적용
+인라인 성격은 witdh, height 속성은 적용되지 않고 padding과 margin 속성은 각각 왼쪽과 오른쪽 방향만 적용
+- display 속성: HTML 태그가 기본으로 가지고 있는 박스 모델의 성격을 display 속성을 사용해 변경 가능
+display: 속성값; 속성값으로는 block, inline, inline-block을 사용, 
+블록 성격인 태그를 인라인 성격으로 바꾸고 싶다면 display 속성을 inline으로 지정 하면됨
+
+배경 속성으로 요소의 배경 설정 하기
+1) background-color: background-color: 색상값;
+2) background-image: 이미지 경로를 지정해 배경 이미지를 설정, background-image: url('이미지 경로');
+3) background-repeat: 요소의 배경 크기가 삽입하려는 이미지보다 크면 이미지를 자동으로 반복해서 채움
+no-repeat(이미지 반복 X), repeat-x(가로 방향 반복), repeat-y(세로 방향 반복), 
+repeat(가로와 세로 방향으로 반복), round(이미지를 반복하되, 이미지가 요소에 딱 맞도록 크기 자동 조절), 
+space(이미지가 잘리지 않도록 반복(사이에 공백 생김))
+4) background-size: 속성으로 이미지 크기를 지정해서 처리
+auto(이미지 크기를 유지), cover(이미지의 가로 세로 비율을 유지하면서 크기를 확대하거나 축소해 요소의 배경에 꽉채움) 
+contain(이미지의 가로 세로 비율을 유지하면서 이미지가 배경요소 안에 들어가도록 크기를 확대, 축소), 너비 높이(직접 지정)
+5) background-position: 속성으로 삽입하려는 이미지의 위치 지정
+background-position: x위치 y위치;
+- x위치 속성값(x축, 가로 방향의 위치 지정)): left, center, right
+- y위치 속성값(y축, 세로 방향의 위치 지정)): top, center, bottom
+- 공통 속성값(위치를 직접 지정): px, rem, em, %
+6) background-attachment: 요소에 삽입된 이미지를 스크롤할 때, 이미지의 작동 방식을 결정
+
+위치 속성으로 html 요소 배치하기
+CSS에서 제공하는 속성 중에는 HTML 요소를 기본 흐름을 벗어나서 원하는 곳에 배치할 수 있는 속성이 있음
+이 속성들은 요소의 위치에 관여한다고 해서 위치 속성이라고 함, html 태그의 박스 모델 성격에 따라
+블록 성격이면 줄바꿈, 인라인 성격이면 수평으로 요소가 배치되는 것이 기본 흐름임
+1) position: postion: 속성값;
+- 속성값의 종류: static(요소를 기본 흐름에 따라 배치, position 속성값을 static으로 지정하면 아무런 변화가 없음), 
+  relative(기본 흐름에 따라 배치하지만 좌표 속성 사용 가능, 원래 위치 기준으로 상대적으로 배치함), 
+  absolute(요소를 기본 흐름에서 벗어나 절대적인 좌표 위치에 따라 배치
+  위치상의 부모 요소 기준, 즉 부모의 position 속성이 반드시 relative로 지정되어야함
+  상위 요소가 없으면  html 기준으로 요소의 기준 위치를 결정), 
+  fixed(요소를 기본 흐름에서 벗어나 절대적인 좌표 위치에 따라 배치, 스크롤해도 해당 위치에 고정
+  해당 요소는 지정된 위치에 고정 됩니다. 실행하면 absolute와 똑같이 작동하는 것처럼 보이지만, 스크롤했을 때 차이가 있음),
+  sticky(요소를 static처럼 기본 흐름에 따라 배치하지만, 지정한 좌표의 임계점에 이르면 fixed처럼 화면에 고정
+  스크롤하는 중에 일정 지점이 되면 요소가 fixed 값 처럼 작동)
+2) z-index: Position 속성으로 배치한 요소의 z축 위치(쌓이는 위치)를 결정 할 수 있음, 
+auto 키워드 또는 정수 값을 사용해 지정할 수 있음
+(auto: 박스가 새로운 쌓임 맥락을 생성X 현재 쌓임 맥락에서의 위치는 부모 요소와 동일)
+더 큰 z-index 값을 가진 요소가 작은 값의 요소 위를 덮음, z-index: -1; 음수 값으로 우선순위를 낮출 수 있음
+부모가 가지고 있는 z-index값이라는 기본 속성이 낮으면, 자식의 z-index값이 높아도 부모의 쌓임 순서를 따름
+
+3) float: 대상 요소를 공중에 띄워 다음에 오는 요소를 주변에 자연스럽게 배치하기 위한 용도로 사용
+- 속성값의 종류: none(float 적용 X), left(대상 요소를 공중에 띄워 왼쪽에 배치하면서 다음에 오는 요소를
+주변에 자연스럽게 배치), right(대상 요소를 공중에 띄워 오른쪽에 배치하면서 다음에 오는 요소를 주변에 자연스럽게 배치)
+한 요소(element)가 보통 흐름(normal flow)으로부터 빠져 텍스트 및 인라인(inline) 요소가 
+그 주위를 감싸는 자기 컨테이너의 좌우측을 따라 배치되어야 함을 지정
+
+4) clear: float 속성을 해제할 때 사용하는 속성
+float 속성을 사용해 웹의 요소를 왼쪽이나 오른쪽에 배치하면 그다음에 넣는 다른 요소에도 똑같은 속성이 전달됨
+float 속성이 적용된 요소는 자신의 원래 위치를 보장받지 못함
 -->
 
 <!DOCTYPE html>
@@ -58,6 +147,7 @@ text-shadow: none or 가로거리 세로거리 번짐정도 색상;
   <title>Document</title>
   <style>
     *{
+      /* margin: 0; */
       color: palevioletred;
     }
     .pparent{
@@ -99,10 +189,10 @@ text-shadow: none or 가로거리 세로거리 번짐정도 색상;
       color: rgb(103, 182, 255);
     }
     h2{
-      color: rgba(103, 182, 255, .5)
+      color: rgba(103, 182, 255, .5);
     }
     h3{
-      color: rgba(103, 182, 255, .3)
+      color: rgba(103, 182, 255, .3);
     }
     h4{
       color: #f0f;
@@ -110,38 +200,220 @@ text-shadow: none or 가로거리 세로거리 번짐정도 색상;
     h5{
       color: #00ff04;
     }
+    .none{      
+      border-style:none;
+    }
+    .hidden{
+      border-style:hidden;
+    }
+    .solid{
+      border-style:solid;
+    }
+    .double{
+      border-style:double;
+    }
+    .dotted{
+      border-style:dotted;
+    }
+    .dashed{
+      border-style:dashed;
+    }
+    .groove{
+      border-style:groove;
+    }
+    .ridge{
+      border-style:ridge;
+    }
+    .inset{
+      border-style:inset;
+    }
+    .outset{
+      border-style:outset;
+    }
+    #container{
+      /* 마진 오토로 하면 가로 가운데 정렬됨! */
+      margin: auto;
+      border: 2px dotted rgb(218, 132, 252);
+      padding: 20px;
+      width: 150px;
+      height: 100px;
+      background-color: aliceblue;
+      border-radius: 30%;
+      box-sizing: border-box;
+      box-shadow: 0px 0px 10px 5px rgb(123, 252, 219);
+    }
+    .background{
+      padding: 10px;
+      background-image: url('images/cinamon_background.jpg');
+    }
+    .parentbox{
+      position:relative;
+    }
+    .box{
+      width:100px;
+      height:100px;
+    }
+    .red-box{
+      background-color:rgba(255,0,0,.5);
+    }
+    .green-box{
+      background-color:rgba(0,255,0,.5);
+      position:absolute;
+      left: 50px;
+      top: 50px;
+    }
+    .blue-box{
+      background-color:rgba(0,0,255,.5);
+      /* position: fixed;
+      left: 0px;
+      top: 0px; */
+      /* position: relative;
+      left: 100px  */
+      
+      top: 0px;
+    }
+    .orange-box{
+      border: 4px dashed red;
+      background-color: orange;
+    }
+    .ob2{
+      position:absolute;
+      left: 50px;
+      top: 50px;
+    }
+    .ob3{
+      position: relative;
+    }
+    #bear1{
+      width: 300px;
+      border: 1px #ccc;
+      border-radius: 50%;
+      box-shadow: 0px 0px 10px 5px gray;
+    }
+    section{
+      width: 800px;
+      margin: 20px;
+      box-sizing: border-box;
+    }
+    article{
+      width: 350px;
+      height: 200px;
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      float:left;
+    }
+    article p{
+      font-size: 14px;
+    }
+    footer{
+      height: 50px;
+      text-align: center;
+      background-color: aliceblue;
+      color: #fff;
+      clear: left;
+    }
+    footer > p{
+      line-height: 50px;
+    }
+    .menu{
+      padding: 10px 20px;
+      background-color: aquamarine;
+      float: left;
+      text-decoration: none;
+      text-align: center;
+    }
+    .menu:hover{
+      background-color: rgb(1, 221, 148);
+      color: #fff;
+    }
   </style>
 </head>
 <body>
-  <div class="pparent">
-    <p>% 부모의 폰트 크기</p>
-    <div class="pchild">
-      <p>% 자식의 폰트 크기</p>
-      <div class="pchildchild"><p>% 자식의 자식 폰트 크기</p></div>
+  <div class="background">
+    <div class="pparent">
+      <p>% 부모의 폰트 크기</p>
+      <div class="pchild">
+        <p>% 자식의 폰트 크기</p>
+        <div class="pchildchild"><p>% 자식의 자식 폰트 크기</p></div>
+      </div>
     </div>
-  </div>
-  <div class="eparent">
-    <p>em 부모의 폰트 크기</p>
-    <div class="echild">
-      <p>em 자식의 폰트 크기</p>
-      <div class="echildchild"><p>em 자식의 자식 폰트 크기</p></div>
+    <div class="eparent">
+      <p>em 부모의 폰트 크기</p>
+      <div class="echild">
+        <p>em 자식의 폰트 크기</p>
+        <div class="echildchild"><p>em 자식의 자식 폰트 크기</p></div>
+      </div>
     </div>
-  </div>
-  <div class="reparent">
-    <p>rem 부모의 폰트 크기</p>
-    <div class="rechild"><p>rem 자식의 폰트 크기</p></div>
-  </div>
-  <div class="vparent">
-    <p>v 부모의 폰트 크기</p>
-    <div class="vchild">
-      <p>v 자식의 폰트 크기</p>
-      <div class="vchildchild">v 자식의 자식 폰트 크기</div>
+    <div class="reparent">
+      <p>rem 부모의 폰트 크기</p>
+      <div class="rechild"><p>rem 자식의 폰트 크기</p></div>
     </div>
+    <div class="vparent">
+      <p>v 부모의 폰트 크기</p>
+      <div class="vchild">
+        <p>v 자식의 폰트 크기</p>
+        <div class="vchildchild">v 자식의 자식 폰트 크기</div>
+      </div>
+    </div>
+    <h1>알파값 주지 않은 색상</h1>
+    <h2>알파값 .5 준 색상</h2>
+    <h3>알파값 .3 준 색상</h3>
+    <h4>#f0f 색상</h4>
+    <h5>#00ff04 색상</h5>
+    <p class="none">none</p>
+    <p class="hidden">hidden</p>
+    <p class="solid">solid</p>
+    <p class="double">double</p>
+    <p class="dotted">dotted</p>
+    <p class="dashed">dashed</p>
+    <p class="groove">groove</p>
+    <p class="ridge">ridge</p>
+    <p class="inset">inset</p>
+    <p class="outset">outset</p>
+    <div id="container">
+    </div>
+    <div class="parentbox">
+      <div class="box red-box"></div>
+    <div class="box green-box"></div>
+    <div class="box blue-box"></div>
+    </div>
+    <div class="parentbox">
+      <div class ="box orange-box ob1"></div>
+      <div class ="box orange-box ob2"></div>
+      <div class ="box orange-box ob3"></div>
+    </div>
+    <img id="bear1" src="images/christmas_bear.jpg" alt="크리스마스곰돌이">
+    <section>
+      <h2>강아지 용품 준비하기</h2>
+      <article>
+        <h3>강아지 집</h3>
+        <p>강아지가 편히 쉴 수 있는 포근한 집이 필요합니다. 강아지의 집은 강아지가 다 큰 후에도 계속 쓸 수 있는 집으로 구입하세요. 집을 구입하실땐는 박음질이 잘 되어있는지, 세탁이 간편한 제품인지 꼭
+          확인하시고 고르시는 것이 좋습니다.</p>
+      </article>
+      <article>
+        <h3>강아지 먹이</h3>
+        <p>강아지의 먹이는 꼭 어린 강아지용으로 나와있는 사료를 선택하세요. 강아지들은 사람에 비해 성장속도가 8배정도 빠르답니다. 따라서 강아지에게는 성장속도에 맞는 사료를 급여하셔야 합니다. 사람이 먹는 음식을
+          먹게 되면 양념과 향신료에 입맛이 익숙해지고, 비만이 될 가능성이 매우 높아집니다. 강아지용 사료는 생후 12개월까지 급여하셔야 합니다.</p>
+      </article>
+      <article>
+        <h3>밥그릇, 물병</h3>
+        <p>밥그릇은 쉽게 넘어지지 않도록 바닥이 넓은 것이 좋습니다.물병은 대롱이 달린 것으로 선택하세요. 밥그릇에 물을 주게 되면 입 주변에 털이 모두 젖기 때문에 비위생적이므로 대롱을 통해서 물을 먹을 수 있는
+          물병을 마련하시는 것이 좋습니다.</p>
+      </article>
+      <article>
+        <h3>이름표, 목줄</h3>
+        <p>강아지를 잃어버릴 염려가 있으니 산책할 무렵이 되면 이름표를 꼭 목에 걸어주도록 하세요. 그리고 방울이 달린 목걸이를 하고자 하실 때는 신중하셔야 합니다. 움직일 때마다 방울이 딸랑 거리면 신경이 예민한
+          강아지들에게는 좋지 않은 영향을 끼칠 수 있기 때문입니다.</p>
+      </article>
+      <footer>
+        <p>boxmodel 연습하기</p>
+      </footer>
+    </section>
+    <a href="#" class="menu">메뉴1</a>
+    <a href="#" class="menu">메뉴2</a>
+    <a href="#" class="menu">메뉴3</a>
+    <a href="#" class="menu">메뉴4</a>
   </div>
-  <h1>알파값 주지 않은 색상</h1>
-  <h2>알파값 .5 준 색상</h2>
-  <h3>알파값 .3 준 색상</h3>
-  <h4>#f0f 색상</h4>
-  <h5>#00ff04 색상</h5>
 </body>
 </html>
