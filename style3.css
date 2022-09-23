@@ -1,0 +1,328 @@
+/* sticky와 fixed 예제에 사용하는 style */
+/* #container{
+  position: relative;
+  left: 20px;
+  top: 20px;
+  background-color: beige;
+  height: 1500px;
+  sticky 를 쓰기 위해서는 꼭 높이를 지정해야함
+}
+div{
+  width: 100px;
+  height: 50px;
+  margin-bottom: 20px;
+  background-color: rgb(255, 197, 126);
+}
+.box{
+  background-color: rgb(126, 178, 255);
+  position: fixed;
+  position: sticky;
+  top: 10px;
+  올라가다가 10px되면 멈춰서 fixed처럼 됨
+  color: #fff;
+} */
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+*{
+  font-family: 'Jua', sans-serif;;
+}
+.trans-box{
+  width: 100px;
+  height: 100px;
+  background-color: aqua;
+}
+.trans-box:hover{
+  background-color: pink;
+}
+.bar{
+  width: 100px;
+  color: whitesmoke;
+  background-color: blueviolet;
+  transition-property: width;
+  transition-duration: 1s;
+  margin-bottom: 10px;
+}
+.bar:hover{
+  width: 200px;
+}
+.bar:nth-child(1){
+  transition-timing-function:linear;
+}
+.bar:nth-child(2){
+  transition-timing-function:ease;
+}
+.bar:nth-child(3){
+  transition-timing-function:ease-in
+}
+.bar:nth-child(4){
+  transition-timing-function:ease-out;
+}
+.bar:nth-child(5){
+  transition-timing-function:ease-in-out;
+}
+.bar:nth-child(5){
+  transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  /* cubic-bezier(x1, y1, x2, y2)
+  x1 : 베지어 곡선의 '시작 곡선'을 만드는데에 기준이 되는 x좌표
+  y1 : 베지어 곡선의 '시작 곡선'을 만드는데에 기준이 되는 y좌표
+  x2 : 베지어 곡선의 '마지막 곡선'을 만드는데에 기준이 되는 x좌표
+  y2 : 베지어 곡선의 '마지막 곡선'을 만드는데에 기준이 되는 y좌표 */
+}
+div.product{
+  padding-top: 10px;;
+  height: 300px;
+  text-align: center;
+  background-image: linear-gradient(rgba(255, 255, 255, .3),rgba(255, 255, 255, .3)), url('images/Kirby25th_Wall.jpg');
+}
+img{
+  position: relative;
+  width: 300px;
+  height: 170px;
+  object-fit: cover;
+  z-index: 5;
+}
+.game{
+  margin: auto;
+  display: inline-block;
+  position: relative;
+  width: 300px;
+  height: 170px;
+  /* float: left; */
+  margin: 10px;
+}
+.desc{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 300px;
+  height: 170px;
+  padding: 10px;
+  box-sizing: border-box;
+  z-index: 10;
+  color: #fff;
+  opacity: 0;
+  transition: 1s ease;
+}
+.desc:hover{
+  opacity: 1;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+/* 강사님 버전에 사용하는 style */
+#container {
+  width: 1000px;
+  margin: 20px auto;
+}
+h1 {
+  text-align: center;
+  font-size: 30px;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  float: left;
+  padding: 0px;
+  margin: 10px;
+  position: relative;
+  overflow: hidden;
+}
+img {
+  margin: 0px;
+  padding: 0px;
+  z-index: 5;
+  float: left;
+}
+
+li .caption {
+  position: absolute;
+  left: -200px;
+  width: 300px;
+  height: 200px;
+  padding-top: 20px;
+  background-color: rgba(0, 0, 0, .6);
+  opacity: 0;
+  transition: .8s .2s ease-in-out;
+  z-index: 10;
+}
+li:hover .caption {
+  opacity: 1;
+  transform: translateX(200px);
+}
+
+.caption h2, .caption p {
+  color: white;
+  text-align: center;
+}
+
+/* 여기서부터 animation */
+div.ani{
+  width:100px;
+  height:100px;
+  border-color:red;
+  animation-name:bgchange;
+  animation-fill-mode:forwards;
+  animation-duration:5s;
+  animation-iteration-count: infinite;
+  animation-play-state:paused;
+  animation-direction: alternate;
+}
+@keyframes bgchange{
+  0%{background-color:red;}
+  25%{background-color:orange;}
+  50%{background-color:yellow;}
+  100%{background-color:green;}
+}
+
+.anibox{
+  width: 100px;
+  height: 100px;
+  float:left;
+  margin:50px;
+}
+#box1 {
+  background-color: #4cff00;
+  border: 1px solid transparent;
+  animation-name: shape;  /* 애니메이션 지정 */ 
+  animation-duration: 3s;  /* 애니메이션 실행 시간 */
+}
+#box2 {
+  background-color: #8f06b0;
+  border: 1px solid transparent;
+  animation-name: rotate;  /* 애니메이션 지정 */
+  animation-duration: 3s;  /* 애니메이션 실행 시간 */
+}
+
+@keyframes shape { /* shape 애니메이션 정의 */
+  from {
+    border: 1px solid transparent;  /* 1px짜리 투명한 테두리 */
+  }
+  to {
+    border: 1px solid #000;  /* 검정색 테두리 */
+    border-radius: 50%;  /* 테두리를 둥글게 */
+  }
+}
+
+@keyframes rotate {  /* rotate 애니메이션 정의 */
+  from {
+    transform:rotate(0deg)  /* 시작은 0도에서 */
+  }
+  to {
+    transform: rotate(45deg);  /* 45도까지 회전 */
+  }
+}
+
+.trans{
+  width:100px;
+  height:100px;
+  background-color:red;      
+}
+.trans:hover{
+  /* transform:scale(2); */
+  transform:rotate(30deg);  /* 오른쪽으로 회전 */
+  /* transform:translate(200px, 200px); 오른쪽으로 100px, 아래쪽으로 200px 이동 */
+}
+
+#ex1main{
+  margin: 10px auto;
+  width: 304px;
+  height: 390px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  text-align: center;
+}
+#googlelogin{
+  margin: 28px 38px;
+  box-sizing: border-box;
+  width: 228px;
+  height: 44px;
+  object-fit: cover;
+}
+#ex1main > div{
+  margin: 20px auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+#ex1main input{
+  width: 228px;
+  height: 44px;
+  box-sizing: border-box;
+  border: none;
+}
+
+#ex1main button{
+  width: 228px;
+  height: 44px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #373F3C;
+  box-sizing: border-box;
+  border: none;
+}
+
+#ex1main div:nth-of-type(1){
+  font-weight: bold;
+  font-size: 16px;
+  color: #504444;
+  /* background-color: #4cff00; */
+}
+
+#ex1main div:nth-of-type(5){
+  font-size: 14px;
+  color: #2C3432;
+  /* background-color: #4cff00; */
+}
+
+#ex2main{
+  position: relative;
+}
+#ex2main > div:nth-of-type(1){
+  transform:rotate(10deg); 
+  margin: 100px 100px;
+  /* margin: 0px auto; */
+  background-color: #ffff99;
+  height: 450px;
+  width: 450px;
+  box-sizing: border-box;
+  padding: 18px;
+  text-align: center;
+}
+
+#ex2main div:nth-of-type(1) > p:nth-of-type(1){
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 44px;
+} 
+
+#ex2main div:nth-of-type(1) > p:nth-of-type(2), p:nth-of-type(3), p:nth-of-type(4){
+  margin-bottom: 20px;
+  font-size: 25px;
+} 
+
+#ex2main  div:nth-of-type(1) > div:nth-of-type(1){
+  height: 50px;
+  width: 100px;
+  background-color: #99a0ff;
+  transform:rotate(-50deg); 
+  position: absolute;
+  top: 400px;
+  left: 350px;
+  overflow: hidden;
+}
+
+#ex2main div:nth-of-type(1) > div:nth-of-type(2){
+  height: 50px;
+  width: 120px;
+  position: absolute;
+  background-color: #ffffff;
+  transform:rotate(-30deg); 
+  position: absolute;
+  top: 420px;
+  left: 350px;
+  overflow: hidden;
+}
+
+
+
+

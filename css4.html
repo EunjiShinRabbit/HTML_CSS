@@ -1,0 +1,44 @@
+<!-- 
+플렉스 박스 레이아웃!!
+flex는 신축성 있는, 유연한이라는 뜻이므로 다양한 상황에서 유연하데 레이아웃을 구성할 수 있도록 제공한다는 의미
+1차원 방식으로 효과적인 레이아웃을 설계할 수 있도록 고안된 스타일 속성
+1차원 방식이란 가로(row)나 세로(column)중 한 방향으로만 레이아웃을 설계하는 방식
+flex container(보통 시멘틱 태그로 자른 이후 하나의 section단위)과 flex item이 있음
+구성요소
+- 주축(main axis) : 플렉스 박스의 진행 방향과 수평한 축을 의미, 내가 진행하는 방향
+- 교차축(cross axis) : 주축과 수직한 축을 의미, 내가 진행하는 방향과 수직된 방향
+- 플렉스 컨테이너 : display 속성값으로 flex나 inline-flex가 적용된 요소를 의미
+- 플렉스 아이템 : 플렉스 컨테이너와 자식 관계를 이루는 태그 구성 요소를 의미
+플렉스 박스 레이아웃의 기본 속성
+1) display 속성: display: flex(inline-flex);
+flex는 적용된 요소의 다음 요소가 항상 줄 바꿈되고, inline-flex는 다음 요소가 주변에 배치되게 함 
+display 속성이 지정된 요소는 플렉스 컨테이너가 되고, 자식 요소는 플렉스 아이템이 됨
+
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FLEX BOX!!</title>
+  <link rel="stylesheet" href="style4.css">
+</head>
+<body>
+  <header>
+    <p>헤더 영역입니다</p>
+  </header>
+  <main>
+    <div class="flex-container">
+      <div class="flex-item">item1</div>
+      <div class="flex-item">item2</div>
+      <div class="flex-item">item3</div>
+      <div class="flex-item">item4</div>
+    </div>
+  </main>
+  <footer>
+    <p>footer 영역입니다</p>
+  </footer>
+</body>
+</html>

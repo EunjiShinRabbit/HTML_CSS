@@ -1,0 +1,204 @@
+<!-- CSS 전환 효과
+전환(transition): 요소에 적용된 스타일의 속성값이 다른 속성값으로 변하게 하는 것
+트랜지션의 속성
+1) transition-property: 트랜지션의 대상을 지정, transition-property: 속성값;
+- none(전환 효과 속성을 지정 X), all(모든 속성을 전환 효과 대상으로 지정, default값)
+ex) transition-property: background-color; transition-property: background-color, color, width; 등
+2) transition-duration: 트랜지션을 실행할 시간을 지정, **transition-duration: 시간;
+요소에 전환 효과를 지정하려면 반드시 transition-property 속성과 transition-duration 속성을 함께 사용해야함 
+둘 중 한개라도 빠지면 전환 효과가 적용되지 않음!, 시간 다르게 주려면 property에 대상으로 지정한 갯수만큼 시간 지정해야함!
+3) transition-timing-function: 트랜지션의 실행 형태를 지정, 속성값으로는 정해진 키워드와 cubic-bezier()함수를 사용
+- linear(처음 속도와 마지막 속도가 일정), ease(처음에는 속도가 점점 빨라지다가 중간부터 점점 느려잠), 
+  ease-in(처음에는 속도가 느리지만 완료될때까지 점점 빨라짐), ease-out(처음에는 빠르지만 점점 느려짐), 
+  ease-in-out(처음에는 속도거 느리지만 점점 빨라지다가 다시 점점 느려짐), 
+  cubic-bezier(p1, p2, p3, p4)(사용자가 정의한 속도로 진행)
+4) transition-delay: 트랜지션의 지연 시간을 지정
+5) transition: 속성을 한꺼번에 지정, transition:<property>, <durtation>, <timing-function>, <delay>;
+전환 효과가 가능한 속성: CSS의 모든 속성이 전환 효과를 사용할 수 있는 것은 아님!
+
+애니메이션 속성으로 전환 효과 제어하기
+애니메이션 속성은 전환 효과 속성과 함께 CSS3에서 새로 추가됐는데, 
+전환 효과 속성보다 더 정확하고 부드럽게 전환 효과를 제어 할 수 있음
+1) 키 프레임 정의하기: 애니메이션은 정지된 이미지를 연속적으로 보여줘서 움직이는 것처럼 보이게 함
+@keyframes 키프레임명{0%{CSS코드} n%{CSS코드} 100%{CSS코드}}
+2) animation-name 속성: 특정 요소에서 적용할 키 프레임명을 지정, animation-name: 키프레임명;
+3) animation-duration 속성: 애니메이션 지속 시간을 설정, animation-duration: 지속 시간;
+애니메이션은 키 프레임, animation-name, animation-duration 속성만 있으면 전환 효과를 적용할 수 있음
+4) animation-delay 속성: 애니메이션 실행을 지연, animation-delay: 지연 시간;
+5) animation-iterator-count 속성: 애니메이션은 기본으로 1회 실행되고 종료 됨, 
+상황에 따라 애니메이션을 반복해서 보여 줘야 하는 경우 사용, animation-iteration-count: 횟수;
+반복 횟수를 지정하거나 무한 반복이 필요한 경우는 infinite 값을 사용, animation-iteration-count:infinite;
+6) animation-play-state 속성: 애니메이션의 재생 상태를 지정
+- 속성값: paused(애니메이션의 실행을 일시 정지), running(애니메이션을 실행)
+전환 효과와 다르게 애니메이션은 실행 도중 일시 정지하거나 일시 정지 했다가 다시 재생 할 수 있음
+해당 기능은 자바스크립트의 기능이 필요(on click 등 이벤트를 제어 필요)
+7) animation-direction 속성: 애니메이션의 진행 방향을 지정, animation-direction:속성값;
+- 속성값: normal(애니메이션의 진행방향을 키프레임에서 정의된 시간 순서대로(to -> from) 진행) 
+  reverse(애니메이션의 진행방향을 키프레임에서 정의된 시간 순서의 역으로(from -> to) 진행), 
+  alternate(애니메이션이 1회 이상 실행될 경우 홀수번째는 normal로 짝수번째는 reverse로), 
+  alternate-reverse(애니메이션이 1회 이상 실행될 경우 홀수번째는 reverse로 짝수번째는 normal로)
+8) animation-fill-mode: 애니메이션이 끝난후 원래 상태로 돌아가지 않고 현재 상태를 유지하고 싶을 때 사용
+- 속성값: none(실행 전 상태로 되돌아감), forward(종료 시점의 스타일을 유지), backwards, both
+9) animation 속성: animation 속성으로 한 번에 지정 가능, 속성값은 전부 다 적을 필요는 없고 필요한 항목만 적으면 됨
+animation:bgchange 5s 3 ease-in;
+
+변형 효과 적용하기
+변형(transform): 물체의 크기나 형태 위치를 바꾸는 것
+변형 효과는 CSS3에서 새로 추가된 속성으로 2D와 3D에서의 변형도 가능(3D는 거의 사용하지 않음)
+1) transform 속성:요소에 특정 변형 효과를 지정할 수 있음
+속성값에는 변형 효과가 정의된 다양한 함수를 사용 목적에 맞게 넣으면 됨, transfrom:<함수>;
+- 속성값: translate(x,y) (요소를 현재 위치에서 x(x축)와 y(y축) 만큼 이동)
+  오른쪽으로 x만큼, 아래쪽으로 y만큼 이동
+  tramslateX(n), translateY(n) (요소를 현재 위치에서 n만큼 (x축 또는 y축) 이동)
+  scale(x,y) (요소를 x(x축)와 y(y축) 만큼 확대), scaleX(n)scaleY(n) (요소를 n만큼 (x축 또는 y축) 확대)
+  skew(xdeg, ydeg) (요소를 x축과 y축으로 xdeg, ydeg 만큼 기울임)
+  skewX(deg), skewY(deg) (요소를 deg 만큼 (x축 또는 y축)으로 기울임, 
+  수평 또는 수직 방향으로 특정 각도만큼 요소 내의 각 점을 왜곡)
+  rotate(deg) (요소를 deg(각도)만큼 회전)
+2) transform-origin 속성: rotate() 함수는 요소가 회전할 때 요소의 중심을 기준으로 회전
+변형 관련 속성값들은 항상 기준접을 가지고 변형을 힘 따라서 기준점을 바꾸면 변형 효과가 다르게 적용됨
+transform-orgin: x축위치 y축위치;
+- x축 속성값: left, center, right
+- y축 속성값: top, center, bottom
+
+웹 폰트와 아이콘 폰트 사용하기
+@import url('폰트 주소')
+CSS코드를 font-family: '폰트이름', 폰트종류;
+--> 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS 전환 효과</title>
+  <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+  <!-- sticky와 fixed 예제
+  <div id="container"><div></div><div class="box"></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+  </div> -->
+  <div class="trans-box"></div>
+  <!-- transition-timing-function 확인 -->
+  <div>
+    <div class="bar">linear</div>
+    <div class="bar">ease</div>
+    <div class="bar">ease-in</div>
+    <div class="bar">ease-out</div>
+    <div class="bar">ease-in-out</div>
+    <div class="bar">커스텀</div>
+  </div>
+  <div class="product">
+    <h2>커비 게임 목록</h2>
+    <div class="game">
+      <img src="images/kirby_game1.jpg" alt="커비의 드림 뷔페">
+      <div class="desc">
+        <h3>커비의 드림 뷔페</h3>
+        <p>커비가 케이크와 도너츠를 흡수!</p>
+        <p>가격: 19800원</p>
+      </div>
+    </div>
+    <div class="game">
+      <img src="images/kirby_game2.jpg" alt="별의 커비 스타 얼라이즈">
+      <div class="desc">
+        <h3>별의 커비 스타 얼라이즈</h3>
+        <p>별의 요정 커비의 신나는 모험!</p>
+        <p>가격: 69800원</p>
+      </div>
+    </div>
+    <div class="game">
+      <img src="images/kirby_game3.jpg" alt=커비 파이터즈2">
+      <div class="desc">
+        <h3>커비 파이터즈2</h3>
+        <p>커비 파이터즈1의 후속작!</p>
+        <p>가격: 39800원</p>
+      </div>
+    </div>
+  </div>
+  <!-- 강사님 ver -->
+  <div id="container">
+    <h1>커비 게임 목록</h1>
+    <ul>
+      <li>
+        <img src="images/kirby_game1.jpg" alt="커비의 드림 뷔페">
+        <div class="caption">
+          <h2>커비의 드림 뷔페</h2>
+          <p>커비가 케이크와 도너츠를 흡수!</p>
+          <p>가격: 19800원</p>
+        </div>
+      </li>
+      <li>
+        <img src="images/kirby_game2.jpg" alt="별의 커비 스타 얼라이즈">
+        <div class="caption">
+          <h2>별의 커비 스타 얼라이즈</h2>
+          <p>별의 요정 커비의 신나는 모험!</p>
+          <p>가격: 69800원</p>
+        </div>
+      </li>
+      <li>
+        <img src="images/kirby_game3.jpg" alt=커비 파이터즈2">
+        <div class="caption">
+          <h2>커비 파이터즈2</h2>
+          <p>커비 파이터즈1의 후속작!</p>
+          <p>가격: 39800원</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <!-- 귀찮아서 그냥 줄바꿈으로 떼우기,.. -->
+  <br><br><br><br><br><br><br><br><br><br><br>
+  <div class="ani"></div>
+  <div class="anibox" id="box1"></div>
+	<div class="anibox" id="box2"></div>
+  <button id="start">start</button>
+  <button id="paused">paused</button>
+  <br><br><br><br><br><br><br><br><br><br><br>
+  <div>
+    <h1>translate</h1>
+    <div class="trans"></div>
+  </div>
+  <form action="#">
+    <div id="ex1main">
+      <a href="#"><img id="googlelogin" src="images/cinamon_background.jpg" alt="구글로그인"></a>
+      <div>
+        or
+      </div>
+      <div>
+        <input type="text" placeholder="Username">
+      </div>
+      <div>
+        <input type="password" placeholder="Password">
+      </div>
+      <div>
+        <button type="submit">LOGIN</button>
+      </div>
+      <div>
+        Forgot your password?
+      </div>
+    </div>
+  </form>
+
+  <div id="ex2main">
+    <div>
+      <p>To. 우리집 침대</p>
+      <p>침대야~ 오늘 급하게 먼저 학원에 가야해서<br>인사도 못하고 먼저 나가~~</p>
+      <p>아침인데 뽀송하게 햇볕 받고 포근하게<br>기다리고 있어~돌고래랑 놀아주고~!</p>
+      <p>그럼 오늘 하루도 힘내고 이따 저녁에 봐~<br>화이팅~!</p>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  
+  <script>
+    const box = document.querySelector(".ani");
+    document.getElementById("start").addEventListener("click", function(){
+      box.style.animationPlayState = "running";
+    });
+    document.getElementById("paused").addEventListener("click", function(){
+      box.style.animationPlayState = "paused";
+    });
+  </script>
+</body>
+</html>
