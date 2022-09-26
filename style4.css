@@ -50,3 +50,20 @@ div{
 .flex-item:nth-child(2n) {
   background-color: rgb(88, 255, 255);
 }
+
+.container{
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  background-color: pink;
+}
+
+img{
+  margin-bottom: 0px; 
+  width:calc(33vw - 5px);
+  height: calc((33vw - 5px) * 1.5);
+  object-fit: cover;
+  object-position: center;
+}

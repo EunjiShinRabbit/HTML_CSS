@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+*{
+  font-family: 'Jua', sans-serif;
+  font-size: 2.5vh;
+  text-shadow: 0px 0px 3px white;
+}
+body{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container{
+  min-width: 400px;
+  width:40vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('images/purple_bg.jpg');
+  background-size: cover;
+  padding: 20px;
+  border-radius: 10%;
+  box-shadow: 5px 5px 10px #ccc;
+  border: 5px outset rgb(195, 130, 238);
+}
+.screen{
+  box-sizing: border-box;
+  padding: 25px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  background-size: cover;
+  min-height: 100px;
+  width: 80%;
+  background-image: linear-gradient(rgba(255,255,255,.7),rgba(255,255,255,.7)),
+  url('images/kirby-star-ball.png');
+  background-position: top;
+  border-radius: 20%;
+  border: 3px inset rgb(255, 101, 127);
+  font-size: 3.5vh;
+  margin-bottom: 20px;
+}
+.buttons{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+.button{
+  margin: 5px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 70px;
+  min-height: 70px;
+  background-image: url('images/kirby_button.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.blue{
+  background-image: url('images/kirby_bbutton.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.orange{
+  background-image: url('images/kirby_obutton.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.button:active {
+  position: relative;
+  top:2px;
+  left: 2px;
+}

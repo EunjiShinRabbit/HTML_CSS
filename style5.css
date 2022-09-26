@@ -1,0 +1,201 @@
+.grid-container{
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+  grid-template-rows: 100px 100px;
+  gap: 10px;
+}
+
+.grid-item{
+  background-color: salmon;
+  color: lemonchiffon;
+}
+
+.grid-item:nth-child(2n){
+  background-color: lemonchiffon;
+  color: salmon;
+}
+
+.grid-template{
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* grid-template-columns: repeat(3, 1fr); */
+  grid-auto-rows: 1fr;
+  width: 80vw;
+  grid-template-areas: 
+    "header header header"
+    "sidebar content content"
+    "footer footer footer";
+  gap: 10px;
+}
+.header{
+  grid-area: header;
+  background-color: palevioletred;
+}
+.sidebar{
+  grid-area: sidebar;
+  background-color: palegreen;
+}
+.content{
+  grid-area: content;
+  background-color: palegoldenrod;
+}
+.footer{
+  grid-area: footer;
+  background-color: paleturquoise;
+}
+
+.grid-line{
+  margin: 10px 0px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
+  display: grid;
+}
+.grid-line > div:nth-child(1){
+  grid-column-start: 1;
+  grid-column-end: 3;
+  background-color: plum;
+}
+.grid-line > div:nth-child(2){
+  grid-column-start:3;
+  background-color: violet;
+}
+.grid-line > div:nth-child(3){
+  grid-row-start:2;
+  grid-row-end:4;
+  background-color: bisque;
+}
+.grid-line > div:nth-child(4){
+  grid-column-start:2;
+  grid-column-end:4;
+  grid-row-start:2;
+  grid-row-end:4;
+  background-color: skyblue;
+}
+
+.grid-ex1{
+  margin: 10px auto;
+  display: grid;
+  width: 90%;
+  grid-template-columns: repeat(auto-fill, minmax(30%, auto)) ;
+  grid-auto-rows: 1fr;
+  background-color: antiquewhite;
+  /* gap: 10px; */
+}
+
+.grid-ex1 > div{
+  padding: 5px;
+  margin: 5px;
+  background-image: linear-gradient(rgba(238, 232, 170, .7), rgba(255, 192, 203, .7));
+  /* border: 1px outset #ccc; */
+  box-shadow: 1px 1px 3px 1px palevioletred;
+  text-align: center;
+}
+
+.grid-ex1 > div > img{
+  width: 90%;
+  border-radius: 10%;
+  box-shadow: 1px 1px 1px 1px white;
+}
+
+.grid-ex1 > div > h2{
+  color:rgb(255, 125, 147);
+  text-shadow: 2px 2px 4px white;
+}
+
+.grid-ex1 > div > p{
+  color:rgb(250, 114, 114);
+  text-shadow: 1px 1px 1px rgb(255, 255, 255);
+}
+
+.grid-ex2{
+  display: grid;
+  grid-template-columns: repeat(5, 94px);
+  grid-auto-rows: 100px;
+  row-gap: 6px;
+  column-gap: 6px;
+  grid-template-areas: 
+    "div1 div2 div2 div3 div3" 
+    "div4 div2 div2 div5 div5"
+    "div6 div7 div8 div9 div10";
+}
+
+.grid-ex2 > div:nth-child(2n-1){
+  background-color: rgb(255, 210, 235);
+}
+
+.grid-ex2 > div:nth-child(2n){
+  background-color: rgb(188, 236, 255);
+}
+
+.grid-ex2 > div:nth-child(1){
+  grid-area: div1;
+}
+.grid-ex2 > div:nth-child(2){
+  grid-area: div2;
+}
+.grid-ex2 > div:nth-child(3){
+  grid-area: div3;
+}
+.grid-ex2 > div:nth-child(4){
+  grid-area: div4;
+}
+.grid-ex2 > div:nth-child(5){
+  grid-area: div5;
+}
+.grid-ex2 > div:nth-child(6){
+  grid-area: div6;
+}
+.grid-ex2 > div:nth-child(7){
+  grid-area: div7;
+}
+.grid-ex2 > div:nth-child(8){
+  grid-area: div8;
+}
+.grid-ex2 > div:nth-child(9){
+  grid-area: div9;
+}
+.grid-ex2 > div:nth-child(10){
+  grid-area: div10;
+}
+
+@media screen and (max-width:600px){
+  .grid-ex2{
+    margin-top: 6px;
+    display: grid;
+    grid-template-columns: repeat(3, 94px);
+    grid-auto-rows: 100px;
+    row-gap: 6px;
+    column-gap: 6px;
+    grid-template-areas: 
+      "div1 div2 div2"
+      "div3 div2 div2" 
+      "div4 div5 div6"
+      "div7 div8 div9"
+      "div10 div10 div10";
+    }
+}
+
+/* 미디어 태그 */
+body {
+  background: url(images/kirby_bg1.jpg) no-repeat fixed;  /* 기본 배경 이미지 지정 */
+  background-size: cover;
+}
+@media screen and (max-width:1024px) {
+  body {
+      background: url(images/kirby_bg2.jpg) no-repeat fixed;  /* 가로가 1024px 이하면 bg1.jpg 지정 */
+      background-size: cover;
+  }
+}
+@media screen and (max-width:768px) {
+  body {
+      background: url(images/kirby_bg3.jpg) no-repeat fixed;  /* 가로가 768px 이하면 bg2.jpg 지정 */
+      background-size:cover;
+  }
+}
+@media screen and (max-width:320px) {
+  body {
+      background: url(images/kirby_bg4.jpg) no-repeat fixed;  /* 가로가 320px 이하면 bg3.jpg 지정 */
+      background-size: cover; 
+  }
+}
