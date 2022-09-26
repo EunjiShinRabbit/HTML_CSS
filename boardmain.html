@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+  <style>
+    body{
+      width: 80vw;
+      margin: 0px auto;
+    }
+    header{
+      padding-left: 5%;
+      padding-right: 5%;
+      height: 80px;
+      background-color: red;
+      display: flex;
+      justify-content: space-between;
+      box-sizing: border-box;
+    }
+    header > .logo{
+      display: flex;
+      align-items: center;
+    }
+    header > .logo > a > img{
+      width: 60px;
+      height: 60px;
+    }
+    header > .logo > a{
+      font-size: 25px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    header > .search{
+      display: flex;
+      align-items: center;
+    }
+    header input{
+      min-width: 220px;
+      width: 20vw;
+      height: 30px;
+      background-image: url('board_resource/search-background.png');
+      background-position: right;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    main{
+      min-height: 200px;
+      height: max-content;
+      background-color: blue;
+      display: flex;
+    }
+    main > .left{
+      min-width: 75px;
+      flex-grow: 3;
+      background-color: orange;
+    }
+    main > .center{
+      flex-grow: 11;
+      background-color: orangered;
+    }
+    main > .right{
+      flex-grow: 6;
+      background-color: orchid;
+    }
+
+    footer{
+      background-color: brown;
+    }
+    footer a{
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="#"><img src="board_resource/sleep_kirby.gif" alt="개발하는 커비"></a>
+      <a href="#">개발하는 커비</a>
+    </div>
+    <div class="search">
+      <form action="#">
+        <input type="text" placeholder="전체 게시판의 글을 검색하세요!">
+      </form>
+    </div>
+  </header>
+  <main>
+    <div class="left"></div>
+    <div class="center"></div>
+    <div class="right"></div>
+  </main>
+  <footer>
+    <a href="#">이용약관</a>
+    <a href="#">개인정보처리방침</a>
+    <a href="#">©개발하는 커비</a>
+  </footer>
+</body>
+</html>

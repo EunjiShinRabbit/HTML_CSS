@@ -1,14 +1,20 @@
 body{
-  height: 100vh;
+  /* height: 100vh; */
   background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), 
   url('kirby_hero/bg_town.jpg');
   background-size: cover;
+  background-attachment: fixed;
 }
 .container{
-  height: 100%;
+  margin: 0px auto;
 }
 .container .heroes{
-  height: 100%;
+  margin: 50px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  max-width: 700px;
+
 }
 .container .heroes .hero{
   width: 80px;
@@ -18,6 +24,7 @@ body{
   border-radius: 10px;
   box-sizing: border-box;
   overflow: hidden;
+  transform: skewX(-10deg);
 }
 
 .container .heroes .hero .image{
@@ -25,6 +32,59 @@ body{
   height: 100%;
   background-size: cover;
   background-position: center;
+  background-color: rgba(255, 106, 163, 0.3);
 }
 
-.container .heroes .hero:nth-child(1) .image {background-image: url("kirby_hero/hero31.png");} 
+/* .container .heroes .hero:hover{
+  transform: scale(1.1) skewX(-10deg);
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(255, 106, 163, 0.6);
+} */
+
+.container .heroes .hero .image:hover{
+  transform-orgin: center center;
+  transform: scale(1.2);
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(255, 106, 163, 0.6);
+}
+
+.container .logo img{
+  margin: 50px auto;
+  display: block;
+  width: 400px;
+}
+
+.container .heroes .hero:nth-child(1) .image {background-image: url("kirby_hero/hero1.png");}
+.container .heroes .hero:nth-child(2) .image {background-image: url("kirby_hero/hero2.png");} 
+.container .heroes .hero:nth-child(3) .image {background-image: url("kirby_hero/hero3.png");} 
+.container .heroes .hero:nth-child(4) .image {background-image: url("kirby_hero/hero4.png");} 
+.container .heroes .hero:nth-child(5) .image {background-image: url("kirby_hero/hero5.png");} 
+.container .heroes .hero:nth-child(6) .image {background-image: url("kirby_hero/hero6.png");} 
+.container .heroes .hero:nth-child(7) .image {background-image: url("kirby_hero/hero7.png");} 
+.container .heroes .hero:nth-child(8) .image {background-image: url("kirby_hero/hero8.png");} 
+.container .heroes .hero:nth-child(9) .image {background-image: url("kirby_hero/hero9.png");} 
+.container .heroes .hero:nth-child(10) .image {background-image: url("kirby_hero/hero10.png");} 
+.container .heroes .hero:nth-child(11) .image {background-image: url("kirby_hero/hero11.png");} 
+.container .heroes .hero:nth-child(12) .image {background-image: url("kirby_hero/hero12.png");} 
+.container .heroes .hero:nth-child(13) .image {background-image: url("kirby_hero/hero13.png");} 
+.container .heroes .hero:nth-child(14) .image {background-image: url("kirby_hero/hero14.png");} 
+.container .heroes .hero:nth-child(15) .image {background-image: url("kirby_hero/hero15.png");}
+.container .heroes .hero:nth-child(16) .image {background-image: url("kirby_hero/hero16.png");}
+.container .heroes .hero:nth-child(17) .image {background-image: url("kirby_hero/hero17.png");} 
+.container .heroes .hero:nth-child(18) .image {background-image: url("kirby_hero/hero18.png");} 
+.container .heroes .hero:nth-child(19) .image {background-image: url("kirby_hero/hero19.png");} 
+.container .heroes .hero:nth-child(20) .image {background-image: url("kirby_hero/hero20.png");} 
+.container .heroes .hero:nth-child(21) .image {background-image: url("kirby_hero/hero21.png");} 
+.container .heroes .hero:nth-child(22) .image {background-image: url("kirby_hero/hero22.png");} 
+.container .heroes .hero:nth-child(23) .image {background-image: url("kirby_hero/hero23.png");} 
+.container .heroes .hero:nth-child(24) .image {background-image: url("kirby_hero/hero24.png");} 
+.container .heroes .hero:nth-child(25) .image {background-image: url("kirby_hero/hero25.png");} 
+.container .heroes .hero:nth-child(26) .image {background-image: url("kirby_hero/hero26.png");} 
+.container .heroes .hero:nth-child(27) .image {background-image: url("kirby_hero/hero27.png");} 
+.container .heroes .hero:nth-child(28) .image {background-image: url("kirby_hero/hero28.png");} 
+.container .heroes .hero:nth-child(29) .image {background-image: url("kirby_hero/hero29.png");} 
+.container .heroes .hero:nth-child(30) .image {background-image: url("kirby_hero/hero30.png");}
+.container .heroes .hero:nth-child(31) .image {background-image: url("kirby_hero/hero31.png");}
+.container .heroes .hero:nth-child(32) .image {background-image: url("kirby_hero/hero32.png");} 

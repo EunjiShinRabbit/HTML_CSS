@@ -1,20 +1,52 @@
-.flex-container {
-  width: 300px;
-  height: 200px;
-  background-color:bisque;
-  border: 1px solid black;
-  display: flex;
+*{
+  width: 100vw;
+  margin: 10px auto;
+  box-sizing: border-box;
 }
-
-.flex-item {
-  width: 80px;
-  height: 50px;
-  margin: 2px;
+header{
+  height: 80px;
+  background-color: aquamarine;
+  padding: 10px;
   text-align: center;
-  border: 1px solid darkblue;
+  color: #fff;
+}
+body{
+  box-sizing: border-box;
+}
+footer{
+  height: 80px;
+  background-color: aqua;
+  padding: 10px;
+  text-align: center;
+  color: #fff;
+}
+div{
+  font-size: 1.2em;
+}
+.flex-container {
+  width: 100%;
+  height: 240px;
+  background-color:rgb(255, 254, 181);
+  border: 1px solid rgb(0, 174, 180);
+  display: flex;
+  /* flex-wrap: wrap; */
+  /* justify-content: space-evenly; */
+  /* align-items: center; */
+  flex-direction: row;
+}
+.flex-item {
+  /* width: 80px; */
+  /* 높이를 없애면 자동으로 채움 특성(기본으로 align-items: stretch)때문에 꽉 차게 나옴 */
+  /* height: 50px; */
+  /* margin: 2px; */
+  /* text-align: center; */
+  border: 1px solid rgb(255, 143, 221);
   color: white;
-  background-color: orange;
+  background-color: rgb(255, 198, 233);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .flex-item:nth-child(2n) {
-  background-color: orangered;
+  background-color: rgb(88, 255, 255);
 }

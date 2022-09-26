@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div{
+      /* border: 1px solid #000; */
+      color: white;
+    }
+    header{
+      display: flex;
+    }
+    header > div{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    header > div:nth-child(1){
+      background-color: orange;
+      flex-grow:1;
+    }
+    header > div:nth-child(2){
+      display: flex;
+      flex-grow:3;
+      flex-direction: column;
+    }
+    header > div:nth-child(2) > div:nth-child(1){
+      width: 100%;
+      background-color: green;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    header > div:nth-child(2) > div:nth-child(2){
+      width: 100%;
+      background-color: brown;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    header > div:nth-child(3){
+      background-color: greenyellow;
+      flex-grow:1;
+    }
+    main{
+      display: flex;
+    }
+    main{
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+    }
+    main > div.top{
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    main > div.top > div.left{
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex-grow: 3;
+    }
+    main > div.top > div.right{
+      display: flex;
+      flex-direction: column;
+      flex-grow: 2;
+      background-color: aqua;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+    main > div.top >  div.left > section:nth-child(1){
+      height: 100%;
+      width: 100%;
+      background-color: blue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    main > div.top >  div.left > section:nth-child(2){
+      height: 100%;
+      width: 100%;
+      background-color: rgb(79, 79, 252);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    main > div.top >  div.left > section:nth-child(3){
+      height: 100%;
+      width: 100%;
+      background-color: rgb(154, 154, 255);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    main > div.bottom{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    main > div.bottom > article:nth-child(1){
+      background-color: salmon;
+      flex-grow: 5;
+    }
+    main > div.bottom > article:nth-child(2){
+      background-color: yellow;
+      flex-grow: 4;
+    }
+    footer{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    footer > div:nth-child(1){
+      flex-grow: 2;
+      background-color: skyblue;
+      
+    }
+    footer > div:nth-child(2){
+      flex-grow: 7;
+      background-color: blueviolet;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>제목</div>
+    <div>
+      <div>검색창</div>
+      <div>네비바</div>
+    </div>
+    <div>아이콘</div>
+  </header>
+  <main>
+    <div class="top">
+      <div class="left">
+        <section>섹션1</section>
+        <section>섹션2</section>
+        <section>섹션3</section>
+      </div>
+      <div class="right">aside</div>
+    </div>
+    <div class="bottom">
+      <article>아티클1</article>
+      <article>아티클2</article>
+    </div>
+  </main>
+  <footer>
+    <div>정보처리안내</div>
+    <div>footer</div>
+  </footer>
+</body>
+</html>
