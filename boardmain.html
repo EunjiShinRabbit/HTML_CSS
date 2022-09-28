@@ -11,14 +11,19 @@
       width: 80vw;
       margin: 0px auto;
     }
+    a{
+      text-decoration: none;
+    }
     header{
       padding-left: 5%;
       padding-right: 5%;
+      width: 80vw;
       height: 80px;
       background-color: red;
       display: flex;
       justify-content: space-between;
       box-sizing: border-box;
+      position: fixed;
     }
     header > .logo{
       display: flex;
@@ -48,31 +53,153 @@
     }
 
     main{
+      padding-top: 80px;
       min-height: 200px;
       height: max-content;
       background-color: blue;
-      display: flex;
+      display: grid;
+      grid-template-columns: 3fr 11fr 6fr;
     }
     main > .left{
-      min-width: 75px;
-      flex-grow: 3;
-      background-color: orange;
-    }
-    main > .center{
-      flex-grow: 11;
-      background-color: orangered;
+      min-width: 200px;
+      background-color: tomato;
     }
     main > .right{
-      flex-grow: 6;
-      background-color: orchid;
+      background-color: yellowgreen;
     }
 
+    main > .center{
+      background-color: yellow;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 1fr;
+    }
+
+    main > .center > .board{
+      min-height: 300px;
+    }
+    main > .center > .board:nth-child(1){
+      background-color: aqua;
+    }
+    main > .center > .board:nth-child(2){
+      background-color: blue;
+    }
+    main > .center > .board:nth-child(3){
+      background-color: blueviolet;
+    }
+    main > .center > .board:nth-child(4){
+      background-color: purple;
+    }
+    main > .center > .board:nth-child(5){
+      background-color: violet;
+    }
+  
     footer{
       background-color: brown;
     }
-    footer a{
-      text-decoration: none;
+
+    @media screen and (max-width:800px) {
+      header{
+        display: flex;
+        flex-direction: column;
+        height: max-content;
+        padding-bottom: 10px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      header > .search{
+        max-width:90%;
+        overflow: hidden;
+      }
+
+      main{
+      min-height: 800px;
+      height: max-content;
+      background-color: blue;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: minmax(400px, auto) minmax(400px, auto) minmax(400px, auto);
+      grid-template-areas: 
+        "left"
+        "right"
+        "center";
+      }
+      main > .left{
+      min-height: 200px;
+      background-color: tomato;
+      grid-area: left;
+      }
+      main > .center{
+      background-color: yellow;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: minmax(400px, auto);
+      grid-auto-rows: 1fr;
+      grid-area: center;
+      }
+
+      main > .right{
+        grid-area: right;
+      }
     }
+
+    .left > .profilecard{
+      border: 1px solid #555;
+      background-color: #f2b6d2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 3vh;
+    }
+
+    .left > .profilecard > .profileimg{
+      margin-top: 50px;
+      max-width: 90%;
+      min-width: 170px;
+      min-height: 170px;
+      width: 15vw;
+      height: 15vw;
+      border: 1px solid #555;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+    }
+
+    .left > .profilecard > .profileimg > img{
+      height: 100%;
+    }
+
+    .left > .profilecard > p{
+      margin-top: 1.5vh;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    .left > .profilecard > p:nth-child(4) > a{
+      margin: 0px 0.5rem;
+      background-color: #fff;
+      padding: .2rem .4rem;
+      border-radius: 3px;
+    }
+
+    .left > .profilecard > p:nth-child(3) > a{
+      display: flex;
+      align-items: center;
+      padding-bottom: 5px;
+    }
+    .left > .profilecard > p:nth-child(3) img{
+      height: 1.5rem;
+      margin-right: 5px;
+      margin-bottom: 5px;
+    }
+
+    .center > .board{
+      border: 1px solid #fff;
+    }
+  
   </style>
 </head>
 <body>
@@ -88,8 +215,33 @@
     </div>
   </header>
   <main>
-    <div class="left"></div>
-    <div class="center"></div>
+    <div class="left">
+      <div class="profilecard">
+        <div class="profileimg"><img src="board_resource/kriby_study2.png" alt="기본 프로필 이미지(공부하는 커비)"></div>
+        <p>닉네임</p>
+        <p>
+          <a href="#">
+            <img src="board_resource/kirby_icon1.png" alt="회원등급 1">
+            회원등급
+          </a>
+        </p>
+        <p><a href="#">내 정보</a><a href="#">로그아웃</a></p>
+      </div>
+    </div>
+    <div class="center">
+      <div class="board">
+        <a href="#">자유게시판</a>
+        <a href="#">최신 게시글 1</a>
+        <a href="#">최신 게시글 2</a>
+        <a href="#">최신 게시글 3</a>
+        <a href="#">최신 게시글 4</a>
+        <a href="#">최신 게시글 5</a>
+      </div>
+      <div class="board"></div>
+      <div class="board"></div>
+      <div class="board"></div>
+      <div class="board"></div>
+    </div>
     <div class="right"></div>
   </main>
   <footer>
