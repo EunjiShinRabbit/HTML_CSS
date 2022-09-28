@@ -1,0 +1,38 @@
+<!-- 내부 스크립트 & 외부 스크립트 사용해보기 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- <style>
+    #head-line{
+      font-size: 3em;
+      color: pink;
+    }
+  </style> -->
+</head>
+<body>
+  <h1 id="head-line">JavaScript</h1>
+
+  <!-- p태그에 아무것도 넣지 않았지만 id를 통해서 동적으로 돔 요소 제어해서 입력 가능 -->
+  <p id="data"></p>
+
+  <!-- input 값을 통해 계산된 값을 가져오기 -->
+  <div>
+    <h2>입력 받은 숫자 범위에 포함된 소수의 합 구하기</h2>
+    <input id="num" onchange="primeMain()">
+  </div>
+
+  <!-- <script>
+    // document.write("자바스크립트를 실행 합니다");
+    const heading = document.querySelector("#head-line");
+    heading.onclick = function(){
+      heading.style.color = "violet";
+    }
+  </script> 
+  내부 스크립트가 아닌 외부 스크립트를 불러오기 위해 주석처리함-->
+  <script src="javascript1.js"></script>
+</body>
+</html>
