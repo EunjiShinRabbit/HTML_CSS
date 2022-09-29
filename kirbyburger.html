@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+    *{
+      box-sizing: border-box;
+      margin: 0px auto;
+      font-family: 'Jua', sans-serif;
+    }
+    body{
+      background-image: url("images/kirby_bg1.jpg");
+    }
+    .main{
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .main > h1{
+      border: 2px dashed red;
+      margin: 10px auto;
+      background-color: rgba(255, 159, 180, 0.5);
+      color: red;
+    }
+    .burger{
+      padding: 10px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto;
+      gap: 10px;
+    }
+    .burger > div{
+      padding: 10px;
+      text-align: center;
+      background-color: rgba(255, 221, 159, 0.5);
+      border-radius: 10px;
+    }
+    .drink{
+      padding: 10px;
+      margin: 0px auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      gap: 10px;
+    }
+    .drink > div{
+      padding: 10px;
+      text-align: center;
+      background-color: rgba(159, 255, 207, 0.5);
+      border-radius: 10px;
+    }
+    .recommand{
+      padding: 10px 40px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 10px;
+    }
+    img{
+      width: 150px;
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <h1> ~ KIRBY BURGER MENU ~ </h1>
+    <div class="burger">
+      <div>
+        <p>치즈 버거</p>
+        <div class="image"><img src="images/cheeseburger.png" alt="치즈 버거"></div>
+        <p id="burger1">0000원</p>
+      </div>
+      <div>
+        <p>불고기 버거</p>
+        <div class="image"><img src="images/bulgogiburger.png" alt="불고기 버거"></div>
+        <p id="burger2">0000원</p>
+      </div>
+      <div>
+        <p>치킨 버거</p>
+        <div class="image"><img src="images/chickenburger.png" alt="치킨 버거"></div>
+        <p id="burger3">0000원</p>
+      </div>
+    </div>
+    <div class="drink">
+      <div>
+        <p>콜라</p>
+        <div class="image"><img src="images/soda.png" alt="콜라"></div>
+        <p id="cola">0000원</p>
+      </div>
+      <div>
+        <p>소다</p>
+        <div class="image"><img src="images/soda.png" alt="소다"></div>
+        <p id="soda">0000원</p>
+      </div>
+    </div>
+    <div class="recommand">
+      <h3>오늘의 추천 세트</h3>
+      <div class="image"><img src="images/burgerset.png" alt="햄버거 세트"></div>
+      <p id="burgerset">버거1 & 음료1</p>
+      <p id="setprice">0000원</p>
+    </div>
+  </div>
+  <script>
+    
+    burger1p = prompt("치즈 버거의 가격을 입력하세요");
+    burger2p = prompt("불고기 버거의 가격을 입력하세요");
+    burger3p = prompt("치킨 버거의 가격을 입력하세요");
+    colap = prompt("콜라의 가격을 입력하세요");
+    sodap = prompt("소다의 가격을 입력하세요");
+
+    let bprice = { "치즈 버거" : burger1p, "불고기 버거" : burger2p, "치킨 버거" : burger3p};
+    let dprice = {"콜라" : colap, "소다" : sodap};
+    
+    let minb = "치즈버거", minbp = bprice["치즈 버거"], mind = "콜라", mindp = dprice["콜라"];
+    for(key in bprice){
+      if (bprice[key] < minbp){
+        minb = key;
+        minbp = bprice[key];
+      }
+    }
+    for(key in dprice){
+      if (dprice[key] < mindp){
+        mind = key;
+        mindp = dprice[key];
+      }
+    }
+
+    document.getElementById("burger1").innerHTML=burger1p + "원";
+    document.getElementById("burger2").innerHTML=burger2p + "원";
+    document.getElementById("burger3").innerHTML=burger3p + "원";
+    document.getElementById("cola").innerHTML=colap + "원";
+    document.getElementById("soda").innerHTML=sodap + "원";
+    document.getElementById("burgerset").innerHTML= minb + " & " + mind;
+    document.getElementById("setprice").innerHTML= (minbp*1 +mindp*1) + "원";
+
+  </script>
+</body>
+</html>
