@@ -7,9 +7,14 @@
   <title>Document</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
     body{
+      font-family: 'Jua', sans-serif;
       width: 80vw;
       margin: 0px auto;
+      background-image: url("images/kirby_bg1.jpg");
+      background-position: center;
+      background-attachment: fixed;
     }
     a{
       text-decoration: none;
@@ -19,11 +24,19 @@
       padding-right: 5%;
       width: 80vw;
       height: 80px;
-      background-color: red;
+      /* background-color: red; */
       display: flex;
       justify-content: space-between;
       box-sizing: border-box;
       position: fixed;
+      background-image: url("board_resource/kirby_header3.gif");
+      background-position: center;
+      background-size: cover;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      border-bottom: 5px solid rgba(255,255,255,.3);
+      /* border-right: 5px solid rgba(255,255,255,.3); */
+      /* border-left: 5px solid rgba(255,255,255,.3);  */
     }
     header > .logo{
       display: flex;
@@ -37,6 +50,8 @@
       font-size: 25px;
       font-weight: bold;
       text-decoration: none;
+      color: #f25ea3;
+      text-shadow: 0px 0px 10px #fff;
     }
     header > .search{
       display: flex;
@@ -44,39 +59,50 @@
     }
     header input{
       min-width: 220px;
+      padding-left: 10px;
       width: 20vw;
       height: 30px;
       background-image: url('board_resource/search-background.png');
       background-position: right;
       background-repeat: no-repeat;
       background-size: contain;
+      border-radius: 10px;
+      border: 1px solid #05C7F2;
     }
 
     main{
-      padding-top: 80px;
+      padding-top: 85px;
       min-height: 200px;
       height: max-content;
-      background-color: blue;
+      /* background-color: blue; */
       display: grid;
       grid-template-columns: 3fr 11fr 6fr;
+      gap: 5px;
     }
     main > .left{
       min-width: 200px;
-      background-color: tomato;
-    }
-    main > .right{
-      background-color: yellowgreen;
+      /* background-color: tomato; */
+      background-color: rgba(255, 255, 255, 0.3);
+      height: fit-content;
+      border-radius: 10px;
     }
 
     main > .center{
-      background-color: yellow;
+      background-color: rgba(242, 238, 182, .5);
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-auto-rows: 1fr;
+      gap: 5px;
+      border-radius: 10px;
     }
 
     main > .center > .board{
       min-height: 300px;
+      border-radius: 10px;
+    }
+    /* div 나눠진거 확인하려고 적용했던 색깔
+    main > .right{
+      background-color: yellowgreen;
     }
     main > .center > .board:nth-child(1){
       background-color: aqua;
@@ -92,10 +118,12 @@
     }
     main > .center > .board:nth-child(5){
       background-color: violet;
-    }
+    } */
   
     footer{
-      background-color: brown;
+      margin: 10px auto;
+      text-align: center;
+      /* background-color: brown; */
     }
 
     @media screen and (max-width:800px) {
@@ -115,24 +143,25 @@
       }
 
       main{
-      min-height: 800px;
-      height: max-content;
-      background-color: blue;
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: minmax(400px, auto) minmax(400px, auto) minmax(400px, auto);
-      grid-template-areas: 
-        "left"
-        "right"
-        "center";
+        padding-top: 116px;
+        min-height: 800px;
+        height: max-content;
+        /* background-color: blue; */
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: minmax(300px, auto) minmax(400px, auto) minmax(400px, auto);
+        grid-template-areas: 
+          "left"
+          "right"
+          "center";
       }
       main > .left{
-      min-height: 200px;
-      background-color: tomato;
-      grid-area: left;
+        min-height: 200px;
+        /* background-color: tomato; */
+        grid-area: left;
       }
       main > .center{
-      background-color: yellow;
+      /* background-color: yellow; */
       display: grid;
       grid-template-columns: 1fr;
       grid-template-rows: minmax(400px, auto);
@@ -143,16 +172,20 @@
       main > .right{
         grid-area: right;
       }
+
     }
 
     .left > .profilecard{
-      border: 1px solid #555;
-      background-color: #f2b6d2;
+      margin: 5px;
+      /* border: 1px solid #555; */
+      background-color: rgba(255, 249, 191, 0.5);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       padding-bottom: 3vh;
+      border-radius: 10px;
+      /* border: 2px dashed #fff; */
     }
 
     .left > .profilecard > .profileimg{
@@ -162,10 +195,12 @@
       min-height: 170px;
       width: 15vw;
       height: 15vw;
-      border: 1px solid #555;
+      border: 2px solid rgba(242, 160, 213, 0.5);
+      background-color: rgba(255, 255, 255, 0.5);
       overflow: hidden;
       display: flex;
       justify-content: center;
+      border-radius: 40px;
     }
 
     .left > .profilecard > .profileimg > img{
@@ -197,7 +232,63 @@
     }
 
     .center > .board{
-      border: 1px solid #fff;
+      /* border: 1px solid #fff; */
+      display: grid;
+      grid-template-rows: repeat(6, 1fr);
+      gap: 5px;
+      padding-top: 5px;
+      padding-bottom: 10px;
+      padding-left: 5px;
+      padding-right: 5px;
+      background-color: rgba(255, 255, 255, .5);
+    }
+    .board > a{
+      padding: 10px;
+      display: block;
+      background-color: rgba(242, 182, 210, .3);
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+    .board > a:nth-child(1){
+      background-color: rgba(242, 182, 210, .6);
+      font-size: 1.3rem;
+    }
+
+    .right{
+      margin-top: 0px;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      /* padding-top: 5px; */
+      padding-bottom: 10px;
+      /* padding-left: 5px;
+      padding-right: 5px; */
+      background-color: rgba(255, 255, 255, .3);
+      /* background-color: rgba(5, 199, 242, 0.3); */
+      border-radius: 10px;
+    }
+
+    .hot, .recent{
+      display: grid;
+      grid-template-rows: repeat(6, 1fr);
+      gap: 5px;
+      padding-top: 5px;
+      padding-bottom: 10px;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+
+    .hot > a, .recent > a{
+      padding: 10px;
+      display: block;
+      /* background-color: rgba(255, 255, 255, 0.6); */
+      background-color: rgba(5, 199, 242, 0.3);
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+    .hot > a:nth-child(1), .recent > a:nth-child(1){
+      background-color: rgba(5, 199, 242, 0.6);
+      font-size: 1.25rem;
     }
   
   </style>
@@ -237,12 +328,57 @@
         <a href="#">최신 게시글 4</a>
         <a href="#">최신 게시글 5</a>
       </div>
-      <div class="board"></div>
-      <div class="board"></div>
-      <div class="board"></div>
-      <div class="board"></div>
+      <div class="board">
+        <a href="#">질문게시판</a>
+        <a href="#">최신 게시글 1</a>
+        <a href="#">최신 게시글 2</a>
+        <a href="#">최신 게시글 3</a>
+        <a href="#">최신 게시글 4</a>
+        <a href="#">최신 게시글 5</a>
+      </div>
+      <div class="board">
+        <a href="#">맛집추천게시판</a>
+        <a href="#">최신 게시글 1</a>
+        <a href="#">최신 게시글 2</a>
+        <a href="#">최신 게시글 3</a>
+        <a href="#">최신 게시글 4</a>
+        <a href="#">최신 게시글 5</a>
+      </div>
+      <div class="board">
+        <a href="#">취업진로게시판</a>
+        <a href="#">최신 게시글 1</a>
+        <a href="#">최신 게시글 2</a>
+        <a href="#">최신 게시글 3</a>
+        <a href="#">최신 게시글 4</a>
+        <a href="#">최신 게시글 5</a>
+      </div>
+      <div class="board">
+        <a href="#">성실회원게시판</a>
+        <a href="#">최신 게시글 1</a>
+        <a href="#">최신 게시글 2</a>
+        <a href="#">최신 게시글 3</a>
+        <a href="#">최신 게시글 4</a>
+        <a href="#">최신 게시글 5</a>
+      </div>
     </div>
-    <div class="right"></div>
+    <div class="right">
+      <div class="hot">
+        <a href="#">실시간 인기 글</a>
+        <a href="#">인기 게시글 1</a>
+        <a href="#">인기 게시글 2</a>
+        <a href="#">인기 게시글 3</a>
+        <a href="#">인기 게시글 4</a>
+        <a href="#">인기 게시글 5</a>
+      </div>
+      <div class="recent">
+        <a href="#">최근 댓글</a>
+        <a href="#">최신 댓글 1</a>
+        <a href="#">최신 댓글 2</a>
+        <a href="#">최신 댓글 3</a>
+        <a href="#">최신 댓글 4</a>
+        <a href="#">최신 댓글 5</a>
+      </div>
+    </div>
   </main>
   <footer>
     <a href="#">이용약관</a>

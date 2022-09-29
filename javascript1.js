@@ -127,12 +127,9 @@ undefined와 null을 묶어서 특수 자료형이라고도함
   객체 리터럴
   객체를 정의하는 가장 간단한 방법, 객체를 정의할 때 중괄호{}를 사용
   중괄호 안에는 키와 값의 한쌍으로 이루어진 속성이 들어감
-  let score = {
-    korScore : 80,
-    engScore : 77,
-    matScore : 89,
-    scnScore : 87
-  }; 이런식으로 정의함
+  let score = { korScore : 80, engScore : 77, matScore : 89, scnScore : 87}; 이런식으로 정의함
+  그냥 score를 출력하면 {korScore: 80, engScore: 77, matScore: 89, scnScore: 87} 형태로 나옴
+  향상된 for 문 형태로 찍을 수 있음
 typeof: 자료형의 타입을 반환함
 toString(): 배열 안의 모든 문자를 쉼표(,)를 이용해 모두 결합해서 하나의 문자열로 반환
 
@@ -147,15 +144,52 @@ x**y x의 y승(x의 y거듭제곱)
 4) 논리연산자: && || !
 5) 삼항연산자: x?y:z
 
+Number.toFixed(n)는 숫자를 소수점 n자리로 반올림
+round()를 이용하여 소수점 n자리로 반올림
+ex) 소수점 2자리로 반올림: 100을 곱한 숫자를 round()로 반올림하고, 100으로 나누면 
+소수점 2자리로 반올림한 것처럼됨, 올림은 ceil() 버림은 floor()
+
 형변환: 데이터의 자료형이 다른 자료형으로 바뀌는 것
 묵시적 형변환: 숫자형 데이터와 문자열 데이터를 연결 연산자로 처리하면 문자열로 형 변환이 일어남
 명시적 형변환
 
-
-
-
-
 */
+// 객체 리터럴
+let score = { korScore : 80, engScore : 77, matScore : 89, scnScore : 87};
+for (i in score){
+  console.log(i);
+  console.log(score[i]);
+}
+
+// 실습문제 5 - 주민등록 번호를 입력받아 성별 나이 출력하기
+while(true){
+  let regnum = prompt("주민등록번호를 입력하세요");
+  document.write("등록하신 번호는 "+regnum+"입니다!<br>");
+  if(regnum.length == 14 && regnum.indexOf("-") == 6){
+    document.write("주민등록번호가 정상적으로 입력되었습니다!");
+    let age, gender;
+    let today = new Date();
+    if (regnum.charAt(7) == 1 || regnum.charAt(7) == 3){
+      gender = "남성";
+    }
+    else if(regnum.charAt(7) == 2 || regnum.charAt(7) == 4){
+      gender = "여성";
+    }
+    if (regnum.charAt(7) == 1 || regnum.charAt(7) == 2){
+      age = today.getFullYear() - 1900 - Number(regnum.substring(0,2)) + 1;
+    }
+    else if(regnum.charAt(7) == 3 || regnum.charAt(7) == 4){
+      age = today.getFullYear() - 2000 -regnum.substring(0,2) + 1;
+    }
+    document.write("<br>성별: "+gender+"<br>나이: "+age);
+    break;
+  }
+  else{
+    document.write("주민등록번호를 잘못 입력하셨습니다!");
+    if(regnum.length != 14) document.write(" 총 자릿수를 확인해주세요!");
+    if(regnum.indexOf("-") != 6) document.write(" 하이픈의 여부나 위치를 확인해주세요!");
+  } 
+}
 
 const pi = 3.14;
 console.log(pi*20);
@@ -200,8 +234,8 @@ function primeNumber(num){
 // 실슴문제 2 - 나이 계산
 let currentYear = 2022;
 let birthYear = prompt("태어난 년도 4자리 입력" , "1990"); // 입력창에 1990이 들어가있음, 입력해서 수정 가능
-let age = currentYear - birthYear + 1;
-document.write("당신의 나이는 "+ age +"세 입니다!<br>");
+let age1 = currentYear - birthYear + 1;
+document.write("당신의 나이는 "+ age1 +"세 입니다!<br>");
 
 // 실습문제 3 - 3개의 정수 중 큰 수와 작은 수 찾기
 let a, b, c, min, max;
@@ -226,7 +260,7 @@ else{
 }
 document.write(a +", "+b+", "+c+" 중 가장 큰 수는 "+max+", 가장 작은 수는 "+min);
 
-// 실슴문제 3 - 45분 이르게 알람 맞추기
+// 실슴문제 4 - 45분 이르게 알람 맞추기
 let hh, mm;
 hh = prompt("일어날 시간을 입력", "");
 mm = prompt("일어날 분을 입력", "");
