@@ -58,11 +58,11 @@
       align-items: center;
     }
     header input{
-      min-width: 220px;
-      padding-left: 10px;
+      min-width: 190px;
+      padding-left: 15px;
       width: 20vw;
       height: 30px;
-      background-image: url('board_resource/search-background.png');
+      background-image: url('board_resource/search-background_blue.png');
       background-position: right;
       background-repeat: no-repeat;
       background-size: contain;
@@ -149,7 +149,7 @@
         /* background-color: blue; */
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: minmax(300px, auto) minmax(400px, auto) minmax(400px, auto);
+        grid-template-rows: minmax(300px, auto) minmax(300px, auto) minmax(300px, auto);
         grid-template-areas: 
           "left"
           "right"
@@ -164,7 +164,7 @@
       /* background-color: yellow; */
       display: grid;
       grid-template-columns: 1fr;
-      grid-template-rows: minmax(400px, auto);
+      grid-template-rows: minmax(300px, auto);
       grid-auto-rows: 1fr;
       grid-area: center;
       }
@@ -244,7 +244,8 @@
     }
     .board > a{
       padding: 10px;
-      display: block;
+      display: flex;
+      align-items: center;
       background-color: rgba(242, 182, 210, .3);
       border-radius: 10px;
       font-size: 1rem;
@@ -273,14 +274,18 @@
       grid-template-rows: repeat(6, 1fr);
       gap: 5px;
       padding-top: 5px;
-      padding-bottom: 10px;
       padding-left: 5px;
       padding-right: 5px;
     }
 
+    .hot{
+      padding-bottom: 10px;
+    }
+
     .hot > a, .recent > a{
       padding: 10px;
-      display: block;
+      display: flex;
+      align-items: center;
       /* background-color: rgba(255, 255, 255, 0.6); */
       background-color: rgba(5, 199, 242, 0.3);
       border-radius: 10px;
@@ -289,6 +294,17 @@
     .hot > a:nth-child(1), .recent > a:nth-child(1){
       background-color: rgba(5, 199, 242, 0.6);
       font-size: 1.25rem;
+    }
+
+    input::placeholder{
+      color: rgba(5, 199, 242, 0.7);
+      font-family: 'Jua', sans-serif;
+    }
+
+    input:focus{
+      /* border: 3px dashed rgba(255, 255, 255, .3); */
+      /* outline: 5px solid #fff; */
+      outline: none;
     }
   
   </style>
