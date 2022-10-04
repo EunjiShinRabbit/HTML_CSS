@@ -86,17 +86,12 @@
       background-color: rgba(242, 238, 182, .5);
       display: grid;
       grid-template-columns: 1fr;
-      grid-auto-rows: 1fr;
+      grid-auto-rows: minmax(auto, 100px), 1fr;
       gap: 5px;
       border-radius: 10px;
       grid-area: center;
     }
 
-    main > .center > .board{
-      min-height: 300px;
-      border-radius: 10px;
-    }
-  
     footer{
       margin: 10px auto;
       text-align: center;
@@ -135,7 +130,7 @@
       /* background-color: yellow; */
       display: grid;
       grid-template-columns: 1fr;
-      grid-template-rows: minmax(300px, auto);
+      grid-template-rows: minmax(50px, auto);
       grid-auto-rows: 1fr;
       grid-area: center;
       }
@@ -144,30 +139,6 @@
         grid-area: right;
       }
 
-    }
-
-    .center > .board{
-      /* border: 1px solid #fff; */
-      display: grid;
-      grid-template-rows: repeat(6, 1fr);
-      gap: 5px;
-      padding-top: 5px;
-      padding-bottom: 10px;
-      padding-left: 5px;
-      padding-right: 5px;
-      background-color: rgba(255, 255, 255, .5);
-    }
-    .board > a{
-      padding: 10px;
-      display: flex;
-      align-items: center;
-      background-color: rgba(242, 182, 210, .3);
-      border-radius: 10px;
-      font-size: 1rem;
-    }
-    .board > a:nth-child(1){
-      background-color: rgba(242, 182, 210, .6);
-      font-size: 1.3rem;
     }
 
     .right{
@@ -222,7 +193,52 @@
       /* outline: 5px solid #fff; */
       outline: none;
     }
-  
+    
+    main > .center > .board-name{
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, .5);
+      height: fit-content;
+    }
+    main > .center .bname{
+      margin: 5px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 10px;
+      display: flex;
+      border-radius: 10px;
+      background-color: rgba(242, 182, 210, .6);
+      font-size: 1.3rem;
+    }
+    main > .center > .write{
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, .5);
+    }
+
+    main > .center > .write > a > .wname{
+      border: 1px solid #f25ea3;
+      background-color: rgba(242, 182, 210, .3);
+      
+    }
+    main > .center > .write > a > .wcontent{
+      border: 1px solid #f25ea3;
+    }
+    main > .center > .write > a > time{
+      border: 1px solid #f25ea3;
+    }
+    main > .center > .write > a > .nickname{
+      border: 1px solid #f25ea3;
+      display: inline-block;
+    }
+    main > .center > .write > a > .status{
+      border: 1px solid #f25ea3;
+      display: flex;
+    }
+    main > .center > .write > a > .status > .good{
+      background-color: #05C7F2;
+    }
+    main > .center > .write > a > .status > .comment{
+      background-color: fuchsia;
+    }
   </style>
 </head>
 <body>
@@ -239,45 +255,148 @@
   </header>
   <main>
     <div class="center">
-      <div class="board">
-        <a href="#">자유게시판</a>
-        <a href="#">최신 게시글 1</a>
-        <a href="#">최신 게시글 2</a>
-        <a href="#">최신 게시글 3</a>
-        <a href="#">최신 게시글 4</a>
-        <a href="#">최신 게시글 5</a>
+      <div class="board-name"><a class="bname" href="#">자유게시판</a></div>
+      <a href="#" class="newwrite">새 글을 작성해주세요!</a>
+      <div class="write">
+        <a href="#">
+          <h2 class="wname">귀여운 커비</h2>
+          <p class="wcontent">
+            봄바람과 함께 푸푸푸랜드에 찾아온 모험의 용사<br>
+            적을 빨아들이고 능력을 카피해, 변신하기도!<br>
+            무기를 휘두르고, 신기한 기술도 사용하고, 때로는 모습을 바꿔 활약!!</p>
+          <time>방금</time>
+          <h3 class="nickname">와들디</h3>
+          <ul class="status">
+            <li class="good">0</li>
+            <li class="comment">0</li>
+          </ul>
+        </a>
       </div>
-      <div class="board">
-        <a href="#">질문게시판</a>
-        <a href="#">최신 게시글 1</a>
-        <a href="#">최신 게시글 2</a>
-        <a href="#">최신 게시글 3</a>
-        <a href="#">최신 게시글 4</a>
-        <a href="#">최신 게시글 5</a>
+      <div class="write">
+        <a href="#">
+          <h2 class="wname">귀여운 커비</h2>
+          <p class="wcontent">봄바람과 함께 푸푸푸랜드에 찾아온 모험의 용사<br>
+            적을 빨아들이고 능력을 카피해, 변신하기도!<br>
+            무기를 휘두르고, 신기한 기술도 사용하고, 때로는 모습을 바꿔 활약!!</p>
+          <time>방금</time>
+          <h3 class="nickname">와들디</h3>
+          <ul class="status">
+            <li class="good">0</li>
+            <li class="comment">0</li>
+          </ul>
+        </a>
       </div>
-      <div class="board">
-        <a href="#">맛집추천게시판</a>
-        <a href="#">최신 게시글 1</a>
-        <a href="#">최신 게시글 2</a>
-        <a href="#">최신 게시글 3</a>
-        <a href="#">최신 게시글 4</a>
-        <a href="#">최신 게시글 5</a>
+      <div class="write">
+        <a href="#">
+          <h2 class="wname">귀여운 커비</h2>
+          <p class="wcontent">봄바람과 함께 푸푸푸랜드에 찾아온 모험의 용사<br>
+            적을 빨아들이고 능력을 카피해, 변신하기도!<br>
+            무기를 휘두르고, 신기한 기술도 사용하고, 때로는 모습을 바꿔 활약!!</p>
+          <time>방금</time>
+          <h3 class="nickname">와들디</h3>
+          <ul class="status">
+            <li class="good">0</li>
+            <li class="comment">0</li>
+          </ul>
+        </a>
       </div>
-      <div class="board">
-        <a href="#">취업진로게시판</a>
-        <a href="#">최신 게시글 1</a>
-        <a href="#">최신 게시글 2</a>
-        <a href="#">최신 게시글 3</a>
-        <a href="#">최신 게시글 4</a>
-        <a href="#">최신 게시글 5</a>
+      <div class="write">
+        <a href="#">
+          <h2 class="wname">귀여운 커비</h2>
+          <p class="wcontent">봄바람과 함께 푸푸푸랜드에 찾아온 모험의 용사<br>
+            적을 빨아들이고 능력을 카피해, 변신하기도!<br>
+            무기를 휘두르고, 신기한 기술도 사용하고, 때로는 모습을 바꿔 활약!!</p>
+          <time>방금</time>
+          <h3 class="nickname">와들디</h3>
+          <ul class="status">
+            <li class="good">0</li>
+            <li class="comment">0</li>
+          </ul>
+        </a>
       </div>
-      <div class="board">
-        <a href="#">성실회원게시판</a>
-        <a href="#">최신 게시글 1</a>
-        <a href="#">최신 게시글 2</a>
-        <a href="#">최신 게시글 3</a>
-        <a href="#">최신 게시글 4</a>
-        <a href="#">최신 게시글 5</a>
+      <div class="write">
+        <a href="#">
+          <h2 class="wname">귀여운 커비</h2>
+          <p class="wcontent">봄바람과 함께 푸푸푸랜드에 찾아온 모험의 용사<br>
+            적을 빨아들이고 능력을 카피해, 변신하기도!<br>
+            무기를 휘두르고, 신기한 기술도 사용하고, 때로는 모습을 바꿔 활약!!</p>
+          <time>방금</time>
+          <h3 class="nickname">와들디</h3>
+          <ul class="status">
+            <li class="good">0</li>
+            <li class="comment">0</li>
+          </ul>
+        </a>
+      </div>
+      <div class="write">
+        <a href="#">
+          <h2 class="wname">귀여운 커비</h2>
+          <p class="wcontent">봄바람과 함께 푸푸푸랜드에 찾아온 모험의 용사<br>
+            적을 빨아들이고 능력을 카피해, 변신하기도!<br>
+            무기를 휘두르고, 신기한 기술도 사용하고, 때로는 모습을 바꿔 활약!!</p>
+          <time>방금</time>
+          <h3 class="nickname">와들디</h3>
+          <ul class="status">
+            <li class="good">0</li>
+            <li class="comment">0</li>
+          </ul>
+        </a>
+      </div>
+      <div class="write">
+        <a href="#">
+          <h2 class="wname">귀여운 커비</h2>
+          <p class="wcontent">봄바람과 함께 푸푸푸랜드에 찾아온 모험의 용사<br>
+            적을 빨아들이고 능력을 카피해, 변신하기도!<br>
+            무기를 휘두르고, 신기한 기술도 사용하고, 때로는 모습을 바꿔 활약!!</p>
+          <time>방금</time>
+          <h3 class="nickname">와들디</h3>
+          <ul class="status">
+            <li class="good">0</li>
+            <li class="comment">0</li>
+          </ul>
+        </a>
+      </div>
+      <div class="write">
+        <a href="#">
+          <h2 class="wname">귀여운 커비</h2>
+          <p class="wcontent">봄바람과 함께 푸푸푸랜드에 찾아온 모험의 용사<br>
+            적을 빨아들이고 능력을 카피해, 변신하기도!<br>
+            무기를 휘두르고, 신기한 기술도 사용하고, 때로는 모습을 바꿔 활약!!</p>
+          <time>방금</time>
+          <h3 class="nickname">와들디</h3>
+          <ul class="status">
+            <li class="good">0</li>
+            <li class="comment">0</li>
+          </ul>
+        </a>
+      </div>
+      <div class="write">
+        <a href="#">
+          <h2 class="wname">귀여운 커비</h2>
+          <p class="wcontent">봄바람과 함께 푸푸푸랜드에 찾아온 모험의 용사<br>
+            적을 빨아들이고 능력을 카피해, 변신하기도!<br>
+            무기를 휘두르고, 신기한 기술도 사용하고, 때로는 모습을 바꿔 활약!!</p>
+          <time>방금</time>
+          <h3 class="nickname">와들디</h3>
+          <ul class="status">
+            <li class="good">0</li>
+            <li class="comment">0</li>
+          </ul>
+        </a>
+      </div>
+      <div class="write">
+        <a href="#">
+          <h2 class="wname">귀여운 커비</h2>
+          <p class="wcontent">봄바람과 함께 푸푸푸랜드에 찾아온 모험의 용사<br>
+            적을 빨아들이고 능력을 카피해, 변신하기도!<br>
+            무기를 휘두르고, 신기한 기술도 사용하고, 때로는 모습을 바꿔 활약!!</p>
+          <time>방금</time>
+          <h3 class="nickname">와들디</h3>
+          <ul class="status">
+            <li class="good">0</li>
+            <li class="comment">0</li>
+          </ul>
+        </a>
       </div>
     </div>
     <div class="right">
