@@ -153,6 +153,14 @@ ex) 소수점 2자리로 반올림: 100을 곱한 숫자를 round()로 반올림
 묵시적 형변환: 숫자형 데이터와 문자열 데이터를 연결 연산자로 처리하면 문자열로 형 변환이 일어남
 명시적 형변환
 
+조건문과 반복문
+- for-in
+for-in문은 데이터 타입 중 배열뿐만 아니라 Object에도 사용할 수 있는 반복문 입니다.
+for (const key in object) { 실행할 코드 블록 }
+
+- for-of
+자바의 향상된 for문과 유사
+
 */
 // 객체 리터럴
 let score = { korScore : 80, engScore : 77, matScore : 89, scnScore : 87};

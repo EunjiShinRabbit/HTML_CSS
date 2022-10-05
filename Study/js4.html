@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .active {
+      font-size: 50px;
+      font-weight: bold;
+      line-height: 1; 
+    }
+    .red-color {
+      color: blueviolet;
+    }
+    *{
+    box-sizing:border-box;
+  }
+  #container {  
+    width:500px;
+    margin:20px auto;
+    padding:20px;
+  }
+  input[type="text"] {
+    width:370px;
+    float:left;
+    height:30px;
+    padding-left:30px;
+  }
+  button {
+    width:90px;
+    height:30px;
+    float:right;
+    background:#222;
+    color:#fff;
+    border:none;
+  }
+  hr { clear:both; display:none; }
+  ul { list-style:none; padding-top:50px;}
+  li { line-height: 2.5; }
+  li:hover { cursor:pointer;}
+
+  #colorbg{
+    width: 500px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+  }
+
+  #green, #orange, #purple{
+    float: none;
+  }
+  #green{
+    background-color: green;
+  }
+  #orange{
+    background-color: orange;
+  }
+  #purple{
+    background-color: purple;
+  }
+  #kirbydesc{
+    position: relative;
+  }
+  #detail{
+    float: none;
+    color: pink;
+    background-color: rgba(255,255,255,.5);
+    width: fit-content;
+    position: absolute;
+    top: 240px;
+    left: 10px;
+  }
+  #kirbydesc > img{
+    width: 500px;
+  }
+  #item {
+    position:relative;
+    width:500px;
+    height:auto;
+    padding:15px 20px;
+    margin:auto;
+}
+.over {
+    position:absolute;
+    left:30px;
+    bottom:30px;
+}
+.detail {
+    width:400px;
+    text-align:left;			
+    line-height:1.8;
+    display:none;
+}
+  </style>
+</head>
+<body>
+  <h1 id="title1">title</h1>
+  <p class="text">text-1</p>
+  <p class="text">text-2</p>
+
+  <div class="box-1">
+    <p class="text">text-1</p>
+    <p class="text">text-2</p>
+  </div>
+  <div class="box-2">
+    <p class="text">text-3</p>
+    <p class="text">text-4</p>
+  </div>
+
+  <p id="title">Hello, <span style="display: none;">Javascript!</span></p>
+  <p id="text">Python!</p>
+
+  <a href="https://google.co.kr">구글</a>
+
+  <form name="frm">
+    <label>아이디
+      <input type="text" name="id">
+    </label><br>
+    <label>패스워드
+      <input type="password" name="pw">
+    </label><br>
+    <label>내용
+      <textarea name="desc" style="vertical-align: middle;"></textarea>
+    </label><br>
+    <label><input type="checkbox" value="apple">사과</label>
+    <label><input type="checkbox" value="banana">바나나</label>
+    <label><input type="checkbox" value="orange">오렌지</label>
+    <label><input type="checkbox" value="melon">멜론</label><br>
+    <label><input type="radio" name="fruits" value="apple">사과</label>
+    <label><input type="radio" name="fruits" value="banana">바나나</label>
+    <label><input type="radio" name="fruits" value="orange">오렌지</label>
+    <label><input type="radio" name="fruits" value="melon">멜론</label><br>
+    <select name="opt">
+      <option value="apple">사과</option>
+      <option value="banana">바나나</option>
+      <option value="orange">오렌지</option>
+      <option value="melon">멜론</option>
+    </select><br>
+    <input type="file" name="upload">
+  </form>
+  <div id="container">
+    <h1>DOM 추가 삭제</h1>
+    <h3>공부할 과목을 기록해 보세요</h3>
+    <h3>공부가 끝난 과목은 클릭해서 삭제할 수 있습니다</h3>
+    <form action="">
+      <input type="text" id="subject" autofocus>
+      <!-- return false; 버튼의 기본 기능인 submit 역할(이벤트) 취소-->
+      <button onclick="newRegister(); return false;">추가</button> 
+    </form>
+    <hr>
+    <ul id="itemList"></ul>
+  </div>
+  <div id="colorbg">
+    <button id="green">Green</button>
+    <button id="orange">Orange</button>
+    <button id="purple">Purple</button>
+  </div>
+
+  <div id="kirbydesc">
+    <img src="images/kirby_dream1.gif" alt="커비 드림 뷔페 1">
+    <button id="detail">상세 설명 보기</button>
+  </div>
+
+  <!-- 강사님 버전 코드 -->
+  <div id="item">
+    <img src="images/kirby_dream2.gif" width="400px" alt="이미지">
+    <button class="over" id="open" onclick="showDetail()">상세 설명 보기</button>
+    <div id="desc" class="detail">
+      <h3>커비의 드림 뷔페</h3>
+      <p>구르고, 먹고, 커지고. 디저트로 가득한 세상에서 먹보의 드림 배틀! 
+        네 명의 커비가 먹은 딸기의 양으로 겨루는 대전 액션. 구르면서 나아가는 커비는 무대 위의 딸기를 먹으면 점점 크게 변화. 최종적으로 가장 커진 커비가 우승입니다. 
+        컬러풀한 음식을 무대로 산더미 딸기가 있는 골을 목표로 경쟁하거나, 떨어지는 딸기를 서로 빼앗거나, 상대를 날려 딸기를 가로채거나.여러가지 배틀로 가장 큰 커비를 결정합니다. 
+        간단한 스틱 조작으로 커비를 굴릴 수 있기 때문에 누구나 부담없이 즐길 수 있습니다.</p>
+      <button id="close" onclick="hideDetail()">상세 설명 닫기</button>
+    </div>
+</div>
+
+  <script src="javascript4.js"></script>
+</body>
+</html>

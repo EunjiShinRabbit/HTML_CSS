@@ -206,7 +206,6 @@ delete() - 특정 데이터를 삭제하려면 delete() 함수를 사용
 clear() - 저장되어 있는 모든 데이터를 한 번에 삭제하려면 clear() 함수를 사용
 forEach() - 주어진 함수를 Set 요소 각각에 대해 삽입 순서대로 실행
 
-
 Map 객체
 Map 객체는 Object와 매우 유사
 Map 객체는 키와 값을 맵핑시켜서 값을 저장하며 저장된 순서대로 각 요소에 접근할 수 있음
@@ -286,3 +285,9 @@ map.delete("name");
 map.forEach(function (e){
     console.log(e);
 });
+
+let seed = prompt("전체 응모자 수를 입력하세요","");
+let picked = Math.floor((Math.random()*seed)+1);
+
+document.querySelector('#seed').innerText = seed;
+document.querySelector('#picked').innerText = picked;
