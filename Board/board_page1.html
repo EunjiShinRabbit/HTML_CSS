@@ -211,33 +211,55 @@
     }
     main > .center > .write{
       border-radius: 10px;
-      background-color: rgba(255, 255, 255, .5);
+      background-color: rgba(255, 255, 255, .8);
     }
 
     main > .center > .write > a > .wname{
-      border: 1px solid #f25ea3;
+      padding: 10px;
+      font-size: 1.1rem;
+      /* border: 1px solid #f25ea3; */
       background-color: rgba(242, 182, 210, .3);
-      
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
     }
     main > .center > .write > a > .wcontent{
-      border: 1px solid #f25ea3;
+      padding: 10px;
+      font-size: 1rem;
+      /* border: 1px solid #f25ea3; */
     }
     main > .center > .write > a > time{
-      border: 1px solid #f25ea3;
+      padding-left: 10px;
+      padding-right: 10px;
+      /* border: 1px solid #f25ea3; */
+      font-size: 0.9rem;
     }
     main > .center > .write > a > .nickname{
-      border: 1px solid #f25ea3;
+      /* border: 1px solid #f25ea3; */
       display: inline-block;
+      font-size: 0.9rem;
     }
     main > .center > .write > a > .status{
-      border: 1px solid #f25ea3;
+      /* border: 1px solid #f25ea3; */
       display: flex;
+      justify-content: flex-end;
+      font-size: 0.9rem;
+      margin-bottom: 2px;
+    }
+    main > .center > .write > a > .status img{
+      height: 20px;
+      margin-right: 2px;
     }
     main > .center > .write > a > .status > .good{
-      background-color: #05C7F2;
+      /* background-color: #05C7F2; */
+      display: flex;
+      align-items: center;
+      padding-right: 10px;
     }
     main > .center > .write > a > .status > .comment{
-      background-color: fuchsia;
+      /* background-color: fuchsia; */
+      display: flex;
+      align-items: center;
+      padding-right: 10px;
     }
 
     textarea::placeholder{
@@ -274,7 +296,7 @@
     .writepage{
       /* background-color: red; */
       width: 100%;
-      /* display: none; */
+      display: none;
     }
     .writepage > form{
       margin: 5px;
@@ -355,13 +377,13 @@
       <div class="newwrite">
         <a href="#" class="newwriteheader">
           <p>새 글을 작성해주세요!</p>
-          <img src="board_resource/kirby-icon8.png">
+          <img src="board_resource/kirby_icon8.png">
         </a>
         <div class="writepage">
           <form action="#">
-            <input type="text" name="writename" id="writename" placeholder="글제목" autofocus>
+            <input type="text" name="writename" id="writename" placeholder="글제목">
             <textarea name="writecontent" id="writecontent" placeholder="글내용"></textarea>
-            <button type="submit">등록 <img src="board_resource/kirby-icon8.png"></button>
+            <button type="submit">등록 <img src="board_resource/kirby_icon8.png"></button>
           </form>
         </div>
       </div>
@@ -375,8 +397,14 @@
           <time>방금</time>
           <h3 class="nickname">와들디</h3>
           <ul class="status">
-            <li class="good">0</li>
-            <li class="comment">0</li>
+            <li class="good">
+              <img src="board_resource/kirby_icon6.png" alt="좋아요">
+              <span>0</span>
+            </li>
+            <li class="comment">
+              <img src="board_resource/kirby_icon7.png" alt="">
+              <span>0</span>
+            </li>
           </ul>
         </a>
       </div>
@@ -389,8 +417,14 @@
           <time>방금</time>
           <h3 class="nickname">와들디</h3>
           <ul class="status">
-            <li class="good">0</li>
-            <li class="comment">0</li>
+            <li class="good">
+              <img src="board_resource/kirby_icon6.png" alt="좋아요">
+              <span>0</span>
+            </li>
+            <li class="comment">
+              <img src="board_resource/kirby_icon7.png" alt="">
+              <span>0</span>
+            </li>
           </ul>
         </a>
       </div>
@@ -403,8 +437,14 @@
           <time>방금</time>
           <h3 class="nickname">와들디</h3>
           <ul class="status">
-            <li class="good">0</li>
-            <li class="comment">0</li>
+            <li class="good">
+              <img src="board_resource/kirby_icon6.png" alt="좋아요">
+              <span>0</span>
+            </li>
+            <li class="comment">
+              <img src="board_resource/kirby_icon7.png" alt="">
+              <span>0</span>
+            </li>
           </ul>
         </a>
       </div>
@@ -417,8 +457,14 @@
           <time>방금</time>
           <h3 class="nickname">와들디</h3>
           <ul class="status">
-            <li class="good">0</li>
-            <li class="comment">0</li>
+            <li class="good">
+              <img src="board_resource/kirby_icon6.png" alt="좋아요">
+              <span>0</span>
+            </li>
+            <li class="comment">
+              <img src="board_resource/kirby_icon7.png" alt="">
+              <span>0</span>
+            </li>
           </ul>
         </a>
       </div>
@@ -431,8 +477,14 @@
           <time>방금</time>
           <h3 class="nickname">와들디</h3>
           <ul class="status">
-            <li class="good">0</li>
-            <li class="comment">0</li>
+            <li class="good">
+              <img src="board_resource/kirby_icon6.png" alt="좋아요">
+              <span>0</span>
+            </li>
+            <li class="comment">
+              <img src="board_resource/kirby_icon7.png" alt="">
+              <span>0</span>
+            </li>
           </ul>
         </a>
       </div>
@@ -445,8 +497,14 @@
           <time>방금</time>
           <h3 class="nickname">와들디</h3>
           <ul class="status">
-            <li class="good">0</li>
-            <li class="comment">0</li>
+            <li class="good">
+              <img src="board_resource/kirby_icon6.png" alt="좋아요">
+              <span>0</span>
+            </li>
+            <li class="comment">
+              <img src="board_resource/kirby_icon7.png" alt="">
+              <span>0</span>
+            </li>
           </ul>
         </a>
       </div>
@@ -459,8 +517,14 @@
           <time>방금</time>
           <h3 class="nickname">와들디</h3>
           <ul class="status">
-            <li class="good">0</li>
-            <li class="comment">0</li>
+            <li class="good">
+              <img src="board_resource/kirby_icon6.png" alt="좋아요">
+              <span>0</span>
+            </li>
+            <li class="comment">
+              <img src="board_resource/kirby_icon7.png" alt="">
+              <span>0</span>
+            </li>
           </ul>
         </a>
       </div>
@@ -473,8 +537,14 @@
           <time>방금</time>
           <h3 class="nickname">와들디</h3>
           <ul class="status">
-            <li class="good">0</li>
-            <li class="comment">0</li>
+            <li class="good">
+              <img src="board_resource/kirby_icon6.png" alt="좋아요">
+              <span>0</span>
+            </li>
+            <li class="comment">
+              <img src="board_resource/kirby_icon7.png" alt="">
+              <span>0</span>
+            </li>
           </ul>
         </a>
       </div>
@@ -487,8 +557,14 @@
           <time>방금</time>
           <h3 class="nickname">와들디</h3>
           <ul class="status">
-            <li class="good">0</li>
-            <li class="comment">0</li>
+            <li class="good">
+              <img src="board_resource/kirby_icon6.png" alt="좋아요">
+              <span>0</span>
+            </li>
+            <li class="comment">
+              <img src="board_resource/kirby_icon7.png" alt="">
+              <span>0</span>
+            </li>
           </ul>
         </a>
       </div>
@@ -501,8 +577,14 @@
           <time>방금</time>
           <h3 class="nickname">와들디</h3>
           <ul class="status">
-            <li class="good">0</li>
-            <li class="comment">0</li>
+            <li class="good">
+              <img src="board_resource/kirby_icon6.png" alt="좋아요">
+              <span>0</span>
+            </li>
+            <li class="comment">
+              <img src="board_resource/kirby_icon7.png" alt="">
+              <span>0</span>
+            </li>
           </ul>
         </a>
       </div>
@@ -531,5 +613,18 @@
     <a href="#">개인정보처리방침</a>
     <a href="#">©개발하는 커비</a>
   </footer>
+
+  <script>
+    document.querySelector(".newwriteheader").addEventListener("click", () => {
+      let writepage = document.querySelector(".writepage");
+      if( writepage.style.display == "block"){
+        writepage.style.display = "none";
+      }
+      else{
+        writepage.style.display = "block";
+      }
+      // writepage.setAttribute("autofocus", "autofocus");
+    });
+  </script>
 </body>
 </html>

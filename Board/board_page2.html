@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>게시글페이지</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
@@ -73,53 +73,26 @@
     main{
       padding-top: 85px;
       min-height: 200px;
-      height: max-content;
+      /* height: max-content; */
       /* background-color: blue; */
       display: grid;
-      grid-template-columns: 3fr 11fr 6fr;
+      grid-template-columns: minmax(200px, 3fr) minmax(320px,11fr) 6fr;
+      grid-template-areas: "center center right";
       gap: 5px;
-    }
-    main > .left{
-      min-width: 200px;
-      /* background-color: tomato; */
-      background-color: rgba(255, 255, 255, 0.3);
-      height: fit-content;
-      border-radius: 10px;
     }
 
     main > .center{
+      /* min-width: 525px; */
+      height: fit-content;
       background-color: rgba(242, 238, 182, .5);
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-auto-rows: 1fr;
+      grid-template-columns: 1fr;
+      grid-template-rows: minmax(50px, auto) max-content;
       gap: 5px;
       border-radius: 10px;
+      grid-area: center;
     }
 
-    main > .center > .board{
-      min-height: 300px;
-      border-radius: 10px;
-    }
-    /* div 나눠진거 확인하려고 적용했던 색깔
-    main > .right{
-      background-color: yellowgreen;
-    }
-    main > .center > .board:nth-child(1){
-      background-color: aqua;
-    }
-    main > .center > .board:nth-child(2){
-      background-color: blue;
-    }
-    main > .center > .board:nth-child(3){
-      background-color: blueviolet;
-    }
-    main > .center > .board:nth-child(4){
-      background-color: purple;
-    }
-    main > .center > .board:nth-child(5){
-      background-color: violet;
-    } */
-  
     footer{
       margin: 10px auto;
       text-align: center;
@@ -144,115 +117,27 @@
 
       main{
         padding-top: 116px;
-        min-height: 800px;
+        /* min-height: 800px; */
         height: max-content;
         /* background-color: blue; */
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: minmax(300px, auto) minmax(300px, auto) minmax(300px, auto);
+        grid-template-rows: minmax(300px, auto) minmax(300px, auto);
         grid-template-areas: 
-          "left"
-          "right"
-          "center";
-      }
-      main > .left{
-        min-height: 200px;
-        /* background-color: tomato; */
-        grid-area: left;
+          "center"
+          "right";
       }
       main > .center{
       /* background-color: yellow; */
       display: grid;
       grid-template-columns: 1fr;
-      grid-template-rows: minmax(300px, auto);
-      grid-auto-rows: 1fr;
+      grid-template-rows: minmax(50px, auto) minmax(300px, auto);
       grid-area: center;
       }
 
       main > .right{
         grid-area: right;
       }
-
-    }
-
-    .left > .profilecard{
-      margin: 5px;
-      /* border: 1px solid #555; */
-      background-color: rgba(255, 249, 191, 0.5);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding-bottom: 3vh;
-      border-radius: 10px;
-      /* border: 2px dashed #fff; */
-    }
-
-    .left > .profilecard > .profileimg{
-      margin-top: 50px;
-      max-width: 90%;
-      min-width: 170px;
-      min-height: 170px;
-      width: 15vw;
-      height: 15vw;
-      border: 2px solid rgba(242, 160, 213, 0.5);
-      background-color: rgba(255, 255, 255, 0.5);
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      border-radius: 40px;
-    }
-
-    .left > .profilecard > .profileimg > img{
-      height: 100%;
-    }
-
-    .left > .profilecard > p{
-      margin-top: 1.5vh;
-      font-size: 1rem;
-      font-weight: bold;
-    }
-
-    .left > .profilecard > p:nth-child(4) > a{
-      margin: 0px 0.5rem;
-      background-color: #fff;
-      padding: .2rem .4rem;
-      border-radius: 3px;
-    }
-
-    .left > .profilecard > p:nth-child(3) > a{
-      display: flex;
-      align-items: center;
-      padding-bottom: 5px;
-    }
-    .left > .profilecard > p:nth-child(3) img{
-      height: 1.5rem;
-      margin-right: 5px;
-      margin-bottom: 5px;
-    }
-
-    .center > .board{
-      /* border: 1px solid #fff; */
-      display: grid;
-      grid-template-rows: repeat(6, 1fr);
-      gap: 5px;
-      padding-top: 5px;
-      padding-bottom: 10px;
-      padding-left: 5px;
-      padding-right: 5px;
-      background-color: rgba(255, 255, 255, .5);
-    }
-    .board > a{
-      padding: 10px;
-      display: flex;
-      align-items: center;
-      background-color: rgba(242, 182, 210, .3);
-      border-radius: 10px;
-      font-size: 1rem;
-    }
-    .board > a:nth-child(1){
-      background-color: rgba(242, 182, 210, .6);
-      font-size: 1.3rem;
     }
 
     .right{
@@ -267,6 +152,7 @@
       background-color: rgba(255, 255, 255, .3);
       /* background-color: rgba(5, 199, 242, 0.3); */
       border-radius: 10px;
+      grid-area: right;
     }
 
     .hot, .recent{
@@ -306,7 +192,101 @@
       /* outline: 5px solid #fff; */
       outline: none;
     }
-  
+    
+    main > .center > .board-name{
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, .5);
+      height: fit-content;
+    }
+    main > .center .bname{
+      margin: 5px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 10px;
+      display: flex;
+      border-radius: 10px;
+      background-color: rgba(242, 182, 210, .6);
+      font-size: 1.3rem;
+    }
+    main > .center > .write{
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, .8);
+    }
+
+    main > .center > .write > .wcontent{
+      padding: 10px;
+      padding-top: 20px;
+      font-size: 1rem;
+      /* border: 1px solid #f25ea3; */
+    }
+    main > .center > .write > .status{
+      /* border: 1px solid #f25ea3; */
+      display: flex;
+      justify-content: flex-start;
+      font-size: 0.9rem;
+      margin-bottom: 2px;
+    }
+    main > .center > .write > .status img{
+      height: 20px;
+      margin-right: 2px;
+    }
+    main > .center > .write > .status > .good{
+      /* background-color: #05C7F2; */
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+    }
+    main > .center > .write > .status > .comment{
+      /* background-color: fuchsia; */
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+    }
+
+    main > .center > .write  .writeprofile{
+      padding: 10px;
+      display: grid;
+      grid-template-columns: 60px 100px;
+      /* column에 사이즈 준거때문에 화면 엄청 줄엿을때 안줄어듦 */
+      grid-template-areas: 
+      "image time"
+      "image nickname";
+    }
+    main > .center > .write  .writeprofile > img{
+      height: 40px;
+      background-color: rgba(255, 249, 191, 0.5);
+      grid-area: image;
+    }
+    main > .center > .write  .writeprofile > time{
+      /* border: 1px solid #f25ea3; */
+      font-size: 0.9rem;
+      grid-area: time;
+      display: flex;
+      align-items: center;
+    }
+    main > .center > .write  .writeprofile > .nickname{
+      /* border: 1px solid #f25ea3; */
+      font-size: 0.9rem;
+      grid-area: nickname;
+      display: flex;
+      align-items: center;
+    }
+    /* 노랑색 rgba(255, 249, 191, 0.5); */
+    main > .center > .write > .wname{
+      padding: 10px;
+      /* border: 1px solid #f25ea3; */
+      background-color: rgba(242, 182, 210, .3);
+      padding-bottom: 0px;
+    }
+    main > .center > .write > .wname > p{
+      padding: 10px;
+      font-size: 1.5rem;
+      padding-bottom: 0px;
+    }
+    main > .center > .write > .commentslist > li img{
+      height: 20px;
+    }
+
   </style>
 </head>
 <body>
@@ -322,59 +302,57 @@
     </div>
   </header>
   <main>
-    <div class="left">
-      <div class="profilecard">
-        <div class="profileimg"><img src="board_resource/kriby_study2.png" alt="기본 프로필 이미지(공부하는 커비)"></div>
-        <p>닉네임</p>
-        <p>
-          <a href="#">
-            <img src="board_resource/kirby_icon1.png" alt="회원등급 1">
-            회원등급
-          </a>
-        </p>
-        <p><a href="#">내 정보</a><a href="#">로그아웃</a></p>
-      </div>
-    </div>
     <div class="center">
-      <div class="board">
-        <a href="#">자유게시판</a>
-        <a href="#">최신 게시글 1</a>
-        <a href="#">최신 게시글 2</a>
-        <a href="#">최신 게시글 3</a>
-        <a href="#">최신 게시글 4</a>
-        <a href="#">최신 게시글 5</a>
-      </div>
-      <div class="board">
-        <a href="#">질문게시판</a>
-        <a href="#">최신 게시글 1</a>
-        <a href="#">최신 게시글 2</a>
-        <a href="#">최신 게시글 3</a>
-        <a href="#">최신 게시글 4</a>
-        <a href="#">최신 게시글 5</a>
-      </div>
-      <div class="board">
-        <a href="#">맛집추천게시판</a>
-        <a href="#">최신 게시글 1</a>
-        <a href="#">최신 게시글 2</a>
-        <a href="#">최신 게시글 3</a>
-        <a href="#">최신 게시글 4</a>
-        <a href="#">최신 게시글 5</a>
-      </div>
-      <div class="board">
-        <a href="#">취업진로게시판</a>
-        <a href="#">최신 게시글 1</a>
-        <a href="#">최신 게시글 2</a>
-        <a href="#">최신 게시글 3</a>
-        <a href="#">최신 게시글 4</a>
-        <a href="#">최신 게시글 5</a>
-      </div>
-      <div class="board">
-        <a href="#">성실회원게시판</a>
-        <a href="#">최신 게시글 1</a>
-        <a href="#">최신 게시글 2</a>
-        <a href="#">최신 게시글 3</a>
-        <a href="#">최신 게시글 4</a>
-        <a href="#">최신 게시글 5</a>
+      <div class="board-name"><a class="bname" href="#">자유게시판</a></div>
+      <div class="write">
+        <div class="wname">
+          <p>귀여운 커비</p>
+          <div class="writeprofile">
+            <img src="board_resource/kriby_study2.png" alt="게시글 프로필 이미지">
+            <time>방금</time>
+            <h3 class="nickname">와들디</h3>
+          </div>
+        </div>
+        <p class="wcontent">
+          봄바람과 함께 푸푸푸랜드에 찾아온 모험의 용사<br>
+          적을 빨아들이고 능력을 카피해, 변신하기도!<br>
+          무기를 휘두르고, 신기한 기술도 사용하고, 때로는 모습을 바꿔 활약!!</p>
+        <ul class="status">
+          <li class="good">
+            <img src="board_resource/kirby_icon6.png" alt="좋아요">
+            <span>0</span>
+          </li>
+          <li class="comment">
+            <img src="board_resource/kirby_icon7.png" alt="댓글">
+            <span>0</span>
+          </li>
+        </ul>
+        <button class="goodbtn">
+          <img src="board_resource/kirby_icon6.png">
+          <p>좋아요</p>
+        </button>
+        <ul class="commentslist">
+           <li>
+            <p>
+              <img src="board_resource/kriby_study2.png" alt="댓글 프로필 이미지">
+              <span class="commentnickname">닉네임</span>
+            </p>
+            <p>동글동글한 핑크색 공 모양 생김새에 뭐든지 빨아들여서 삼키는 능력을 가진, 별의 커비 시리즈의 주인공!</p>
+            <time>10분 전</time>
+          </li>
+          <li>
+            <p>
+              <img src="board_resource/kriby_study2.png" alt="댓글 프로필 이미지">
+              <span class="commentnickname">닉네임</span>
+            </p>
+            <p>좋아하는 음식은 맥시멈 토마토, 맥시멈 토마토는 게임 상에서 체력을 전부 회복시켜 주는 아이템으로 등장!</p>
+            <time>10분 전</time>
+          </li>
+        </ul>
+        <form action="#" class="writecomment">
+          <input type="text" name="commentinput" id="commentinput">
+          <button type="submit"><img src="board_resource/kirby_icon8.png"></button>
+        </form>
       </div>
     </div>
     <div class="right">
@@ -401,5 +379,9 @@
     <a href="#">개인정보처리방침</a>
     <a href="#">©개발하는 커비</a>
   </footer>
+
+  <script>
+
+  </script>
 </body>
 </html>

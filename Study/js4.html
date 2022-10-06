@@ -95,6 +95,17 @@
     line-height:1.8;
     display:none;
 }
+
+body{
+  width:5000px;
+  height: 5000px;
+}
+.scrollbtn{
+  position: fixed;
+  top:10px;
+  left:10px;
+}
+
   </style>
 </head>
 <body>
@@ -177,7 +188,15 @@
         간단한 스틱 조작으로 커비를 굴릴 수 있기 때문에 누구나 부담없이 즐길 수 있습니다.</p>
       <button id="close" onclick="hideDetail()">상세 설명 닫기</button>
     </div>
-</div>
+  </div>
+
+  <button onclick="popup()">팝업!</button>
+
+  <div class="scrollbtn">
+    <button onclick="sTo()">scrollTo(100, 200)</button>
+    <button onclick="sBy()">scrollBy(100, 200)</button>
+  </div>
+
 
   <script src="javascript4.js"></script>
 </body>

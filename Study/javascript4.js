@@ -216,6 +216,81 @@ DOM에서 제공하는 addEventListener() 메서드를 사용해 이벤트를 �
 함수 표현식으로 정의된 함수는 호이스팅에 의해 선언과 할당이 분리되므로
 참조하려면 함수가 addEventListener() 메서드보다 반드시 위에 작성되어야함!!!!
 
+이벤트 객체는 이벤트 타입에 따라 발생하는 이벤트의 각종 정보가 들어 있는 객체 집합
+이벤트 객체는 개발자가 직접 생성하는 것이 아니라 이벤트가 발생하면 실행되는 함수의 매개변수로 같이 전달
+벤트가 발생하면 실행되는 함수에는 내부적으로 이벤트 객체가 매개변수로 전달됨
+
+- 이벤트 객체 사용하기
+PointerEvent 객체의 주요 속성
+1) clientX: 마우스가 클릭된 x좌표(수평 스크롤 포함 X)
+2) clientY: 마우스가 클릭된 y좌표(수직 스크롤 포함 X)
+3) pageX: 마우스가 클릭된 x좌표(수평 스크롤 포함 O)
+4) pageY: 마우스가 클릭된 y좌표(수직 스크롤 포함 O)
+5) screenX: 모니터의 왼쪽 위 모서리를 기준으로 마우스가 클릭된 x좌표
+6) screenY: 모니터의 왼쪽 위 모서리를 기준으로 마우스가 클릭된 y좌표
+
+KeyboardEvent 객체의 주요 속성
+1) keyCode: 키보드에서 눌린 유니코드 값을 반환
+2) ctrlKey: Ctrl키가 눌렸으면 true, 아니면 false
+3) altKey: Alt키가 눌렸으면 true, 아니면 false
+4) shiftKey: Shift키가 눌렸으면 true, 아니면 false
+
+- 이벤트 취소하기
+HTML 태그 중 일부는 기본으로 이벤트가 적용되어 있음, 대표적으로 a 태그와 form태그
+preventDefault()메서드를 사용하면 태그에 기본으로 연결된 이벤트를 취소할 수 있음
+
+- this 키워드 사용하기
+이벤트 함수 내부에서 this 키워드를 사용하면 이벤트가 발생한 요소 노드를 바로 가리킬 수 있음!
+
+- this 키워드를 사용시 주의점!!!!
+이벤트 함수를 화살표 함수로 작성하면 this의 범위가 달라져서 this가 이벤트 발생 노드를 가리키지 않음!
+(원래 addEventListener의 콜백함수에서는 this에 해당 이벤트가 리스너가 호출된 엘리먼트가 바인딩됨
+이처럼 이미 this의 값이 정해져 있는 콜백 함수의 경우, 
+화살표 함수를 사용하면 기존 바인딩 값이 사라지고 상위 스코프가 바인딩 되기 땨문에 
+의도했던대로 동작하지 않을 수 있음)
+
+브라우저 객체 모델 사용하기
+- 브라우저 객체 모델: 자바스크립트 언어 사양에 포함되지 않고 웹 브라우저에서 제공하는 객체
+- 브라우저 객체 모델의 종류
+1) window: 웹브라우저가 열릴 때마다 생성되는 최상위 관리 객체
+2) document: 웹브라우저에 표시되는 HTML 문서 정보가 포함된 객체
+3) location: 웹 브라우저에 현재 표시된 페이지에 대한 URL 정보가 포함된 객체
+4) history: 웹 브라우저에 저장된 방문 기록이 포함된 객체
+5) navigator: 웹 브라우저 정보가 포함된 객체
+6) screen: 웹 브라우저의 화면 정보가 포함된 객체
+
+- window 객체의 속성과 메소드
+- 속성
+1) innerWidth: 웹브라우저 화면의 너비를 픽셀(px)단위로 나타냄
+2) innerHeight: 웹브라우저 화면의 높이를 픽셀(px)단위로 나타냄
+3) outerWidth: 웹브라우저 창의 너비를 픽셀(px)단위로 나타냄
+4) outerHeight: 웹브라우저 창의 높이를 픽셀(px)단위로 나타냄
+5) screenLeft / screenX: 웹브라우저의 왼쪽 면과 모니터의 간격을 픽셀(px)단위로 나타냄
+6) screenTop / screenY: 웹브라우저의 위쪽 면과 모니터의 간격을 픽셀(px)단위로 나타냄
+7) pageXOffset / scrollX: 웹브라우저의 수평 스크롤 위치를 px 단위로 나타냄
+8) pageYOffset / scrollY: 웹브라우저의 수직 스크롤 위치를 px 단위로 나타냄
+
+- 메소드
+1) alert(): 알림창을 표시
+2) confirm(): 확인창을 표시
+3) prompt(): 입력창을 표시
+4) open(): 새로운 웹브라우저 창을 염
+5) close(): 웹브라우저 창을 닫음
+6) setTimeout(): 일정시간(ms)뒤에 콜백 함수를 한번 실행
+7) setInterval(): 일정시간(ms)마다 콜백 함수를 반복적으로 실행
+8) cleanInterval(): setInterval() 매소드로 반복 실행되는 함수를 중지
+9) scrollTo(): 웹 브라우저의 스크롤을 특정 위치(절대위치)만큼 이동
+10) scrollBy(): 웹 브라우저의 스크롤을 현재 위치에서 상대적 위치로 이동
+
+- windows 객체의 open() 메서드는 웹 브라우저에서 새로운 창을 여는 데 사용
+open() 메서드는 매개변수로 창의 경로, 이름, 속성을 전달 받음
+ex) window.open('popup.html', '팝업', 'width=200, height=100');
+- 속성
+1) width: 웹브라우저의 너비를 px 단위로 지정
+2) height: 웹브라우저의 높이를 px 단위로 지정
+3) left: 웹브라우저 왼쪽에서의 위치를 px 단위로 지정
+4) top: 웹브라우저 위쪽에서의 위치를 px 단위로 지정
+
 */
 
 // 메소드로 노드 선택하기
@@ -383,4 +458,24 @@ function showDetail() {
 function hideDetail() {
   document.querySelector('#desc').style.display = "none";	   // 상세 설명 부분을 화면에서 감춤
   document.querySelector('#open').style.display = "block";	 // '상세 설명 보기' 단추를 화면에 표시
+}
+
+function popup(){
+  let popupWidth = 400;
+  let popupHeight = 300;
+  let popupX = (window.screen.width / 2) - (popupWidth /2);
+  let popupY = (window.screen.height / 2) - (popupHeight /2);
+  window.open('popup.html', '팝업', 'status=no height=' + popupHeight + ', width='+
+  popupWidth + ', left=' + popupX + ', top='+ popupY);
+}
+
+function sTo(){
+  // 고정적인 좌표로 스크린 이동함
+  window.scrollTo(100, 200);
+  // window.scrollTo({left:100, top:200});
+}
+function sBy(){
+  // 상대적으로 스크린 움직임
+  window.scrollBy(100, 200);
+  // window.scrollBy({left:100, top:200});
 }
