@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  *{
+    margin: 0px;
+  }
+  body{
+    background-color: skyblue;
+  }
+  .grayBox{
+    margin: 20px auto;
+    padding: 20px;
+    width: 500px;
+    background-color: #ddd;
+    border: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+  }
+  input{
+    border: none;
+    border-bottom: 2px dashed #000;
+    background-color: #ddd;
+  }
+  label{
+    display: grid;
+    grid-template-columns: 150px 350px;
+    margin-bottom: 5px;
+    margin-bottom: 25px;
+  }
+  label > span:nth-child(1){
+   font-weight: bold;
+  }
+  .msg{
+    font-size: 14px;
+    color: #666;
+    display: none;
+  }
+  label:nth-of-type(4) > div{
+    display: flex;
+    margin-bottom: 25px;
+  }
+  label:nth-of-type(4) input{
+    width: 160px;
+  }
+  label:nth-of-type(5){
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-areas: "addr input1"". input2";
+  }
+  label:nth-of-type(5) > span{
+    grid-area: addr;
+  }
+  label:nth-of-type(5) > input:nth-of-type(1){
+    grid-area: input1;
+    margin-bottom: 25px;
+  }
+  label:nth-of-type(5) > input:nth-of-type(2){
+    grid-area: input2;
+    margin-bottom: 25px;
+  }
+  button{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: greenyellow;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+</style>
+<body>
+  <div class="grayBox">
+    <label for="id"><span>아이디</span>
+      <input type="text" id="id" name="id">
+      <span></span><p class="msg">메시지</p>
+    </label>
+    <label for="pwd"><span>패스워드</span>
+      <input type="password" id="pwd" name="pwd">
+      <span></span><p class="msg">메시지</p>
+    </label>
+    <label for="pwdchk"><span>패스워드 확인</span>
+      <input type="password" id="pwdchk" name="pwdchk">
+      <span></span><p class="msg">메시지</p>
+    </label>
+    <label><span>이메일</span>
+      <div>
+        <input type="text" id="emailf" name="emailf">
+        <span>@</span>
+        <input type="text" id="emailb" name="emailb">
+      </div>
+    </label>
+    <label><span>주소</span>
+      <!-- textarea로 하려고 했더니 2줄로해서 각 줄밑에 밑줄 긋는게 까다로워서
+      그냥 input 2줄로 함 -->
+      <input type="text" id="addr1" name="addr1">
+      <input type="text" id="addr2" name="addr2">
+    </label>
+    <button type="submit">가입</button>
+  </div>
+
+  <script>
+    let idInput = document.querySelector("#id");
+    let pwdInput = document.querySelector("#pwd");
+    let pwdchkInput = document.querySelector("#pwdchk");
+    let msg = document.querySelectorAll(".msg");
+
+    idInput.addEventListener("blur", () =>{
+      const id = document.getElementById("id").value;
+      if(id.length == 0){
+        msg[0].innerHTML = "필수 입력 항목입니다";
+        msg[0].style.display = "block";
+      }
+      else{
+        msg[0].style.display = "none";
+      }
+    });
+
+    pwdInput.addEventListener("blur", () =>{
+      const pwd = document.getElementById("pwd").value;
+      if(pwd.length == 0){
+        msg[1].innerHTML = "필수 입력 항목입니다";
+        msg[1].style.display = "block";
+      }
+      else{
+        msg[1].style.display = "none";
+      }
+    });
+    pwdchkInput.addEventListener("blur", () =>{
+      const pwdchk = document.getElementById("pwdchk").value;
+      if(pwdchk.length == 0){
+        msg[2].innerHTML = "필수 입력 항목입니다";
+        msg[2].style.display = "block";
+      }
+      else{
+        msg[2].style.display = "none";
+      }
+    });
+
+    pwd.addEventListener("click", () =>{
+      msg[1].innerHTML = "영문자 대/소문자 특수문자, 숫자 포함 8 ~ 32자";
+      msg[1].style.display = "block";
+    });
+
+  </script>
+</body>
+</html>

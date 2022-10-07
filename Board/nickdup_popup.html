@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>닉네임 중복 확인</title>
+</head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+  *{
+    font-family: 'Jua', sans-serif;
+    margin: 0px;
+  }
+  div{
+    height: 100vh;
+    background: linear-gradient(45deg, rgba(242, 182, 210, .5), rgba(255, 249, 191, 0.5));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  img{
+    width: 240px;
+  }
+  span{
+    font-size: 2rem;
+    color: #f25ea3;
+  }
+  p{
+    font-size: 1.2rem;
+  }
+</style>
+<body>
+  <div>
+    <p><span></span>는</p>
+    <p>사용 가능한 닉네임 입니다!</p>
+    <img src="board_resource/nickname_ok.gif" alt="닉네임 오케이!">
+  </div>
+  <script>
+    // 이걸로하면 팝업으로 안뜨고 새창떠서 다른방법 사용하기로ㅠ
+    // let temp = location.href.split("?");
+    // let nickname = temp[1];
+    let nickname = sessionStorage.getItem("nickname");
+    document.querySelector("span").innerText = nickname;
+
+    </script>
+</body>
+</html>
