@@ -144,6 +144,18 @@
       background-color:rgba(255, 255, 255, .8);
       /* border: 2px solid rgba(255, 78, 161, 0.6); */
     }
+    #pwd{
+      background-image: url("board_resource/pwd_none.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: right;
+    }
+    #pwdchk{
+      background-image: url("board_resource/pwdchk_none.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: right;
+    }
 
   </style>
 </head>
@@ -264,6 +276,7 @@
     // 
     let errmsg = document.querySelectorAll(".err");
     let regchkbtn = document.querySelector("#regchkbtn");
+    // let regchkbtnhover = document.querySelector("#regchkbtn:hover");
     let nickinput = document.querySelector("#nickname");
     let pwdinput = document.querySelector("#pwd");
     let pwdchkinput = document.querySelector("#pwdchk");
@@ -278,6 +291,7 @@
       if(nickchk&&pwdchk&&pwdchkchk&&phonechk){
         regchkbtn.style.backgroundColor = "rgba(242, 182, 210, .7)";
         regchkbtn.style.color = "rgba(255, 78, 161, 1)";
+        // regchkbtnhover.style.backgroundColor = "rgba(242, 182, 210, 1)";
       }
       else{
         regchkbtn.style.backgroundColor = "rgba(242, 182, 210, .3)";
@@ -340,6 +354,7 @@
         errmsg[1].style.color = "rgba(5, 199, 242, 0.6)";
         errmsg[1].innerHTML = "사용 가능한 비밀번호 입니다!";
         errmsg[1].style.display = "block";
+        pwdinput.style.backgroundImage = "url('board_resource/pwd_blue.png')";
         pwdchk = true;
         temppwd = pwd;
       }
@@ -347,12 +362,14 @@
         errmsg[1].style.color = "red";
         errmsg[1].innerHTML = "비밀번호는 필수 항목입니다!";
         errmsg[1].style.display = "block";
+        pwdinput.style.backgroundImage = "url('board_resource/pwd_red.png')";
         pwdchk = false;
       }
       else{
         errmsg[1].style.color = "red";
         errmsg[1].innerHTML = "비밀번호는 대문자, 소문자, 숫자, 특수문자를 최소 1개 포함하고 8자이상 20자 이하 입니다!";
         errmsg[1].style.display = "block";
+        pwdinput.style.backgroundImage = "url('board_resource/pwd_red.png')";
         pwdchk = false;
       }
       buttonOnOff();
@@ -370,6 +387,7 @@
         errmsg[2].style.color = "rgba(5, 199, 242, 0.6)";
         errmsg[2].innerHTML = "비밀번호 확인이 완료되었습니다!";
         errmsg[2].style.display = "block";
+        pwdchkinput.style.backgroundImage = "url('board_resource/pwdchk_blue.png')";
         pwdchkchk = true;
       }
       else if(pwdchk.length == 0){
@@ -449,6 +467,7 @@
         errmsg[1].style.color = "red";
         errmsg[1].innerHTML = "비밀번호는 필수 항목입니다!";
         errmsg[1].style.display = "block";
+        pwdinput.style.backgroundImage = "url('board_resource/pwd_red.png')";
       }
     });
     pwdchkinput.addEventListener("blur", () =>{
