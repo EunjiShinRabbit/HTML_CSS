@@ -31,3 +31,4 @@ fetch("http://192.168.10.231:3000/comments?postId=1")
 
 // DELETE 요청
 // fetch("http://localhost:3000/posts/2", { method: "DELETE" });
+

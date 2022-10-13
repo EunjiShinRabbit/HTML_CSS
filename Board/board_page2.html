@@ -11,10 +11,17 @@
     body{
       font-family: 'Jua', sans-serif;
       width: 80vw;
-      margin: 0px auto;
+      margin-left: 10vw;
       background-image: url("board_resource/kirby_bg1.jpg");
-      background-position: center;
+      background-position: 50% 50%;
       background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-size: cover;
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+    body::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera*/
     }
     a{
       text-decoration: none;
@@ -71,6 +78,7 @@
     }
 
     main{
+      width: 80vw;
       padding-top: 85px;
       min-height: 200px;
       /* height: max-content; */
