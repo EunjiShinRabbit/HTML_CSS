@@ -285,6 +285,8 @@
       /* border: 1px solid #f25ea3; */
       background-color: rgba(242, 182, 210, .3);
       padding-bottom: 0px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
     }
     main > .center > .write > .wname > p{
       padding: 10px;
@@ -294,6 +296,53 @@
     main > .center > .write > .commentslist > li img{
       height: 20px;
     }
+    .commentslist{
+      /* border-top: 1px solid rgba(242, 182, 210, .5); */
+      padding-left: 10px;
+      padding-right: 10px;
+      background-color: rgba(242, 182, 210, .1);
+    }
+    .writecomment{
+      padding: 10px;
+      display: grid;
+      grid-template-columns: 1fr 36px;
+      gap: 5px;
+    }
+    .writecomment > button{
+      border: none;
+      border-radius: 10px;
+      background-color: rgba(242, 94, 163, .3);
+      display: flex;
+      justify-content: center;
+    }
+    .writecomment > button > img{
+      width: 30px;
+    }
+    .goodbtn{
+      margin: 0px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: none;
+      background-color: rgba(255, 255, 255, 0);
+      position: relative;
+    }
+    .goodbtn > img{
+      width: 60px;
+    }
+    .goodbtn > p{
+      position: absolute;
+      top: 22px;
+      padding-top: 2px;
+      padding-bottom: 5px;
+      color: #fff;
+      font-family: 'Jua', sans-serif;
+      font-size: 1rem;
+      text-shadow: 0px 0px 5px red;
+      background-color: rgb(255, 80, 98);
+    }
+
+  
 
   </style>
 </head>
@@ -336,8 +385,8 @@
           </li>
         </ul>
         <button class="goodbtn">
-          <img src="board_resource/kirby_icon6.png">
-          <p>좋아요</p>
+          <img src="board_resource/kirby_icon6-1.png">
+          <p>토마토</p>
         </button>
         <ul class="commentslist">
            <li>
