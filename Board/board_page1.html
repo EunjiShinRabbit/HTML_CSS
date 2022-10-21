@@ -89,7 +89,7 @@
       gap: 5px;
     }
 
-    main > .center{
+    main > .boardcenter{
       /* min-width: 525px; */
       background-color: rgba(242, 238, 182, .5);
       display: grid;
@@ -134,7 +134,7 @@
           "center"
           "right";
       }
-      main > .center{
+      main > .boardcenter{
       /* background-color: yellow; */
       display: grid;
       grid-template-columns: 1fr;
@@ -202,12 +202,12 @@
       outline: none;
     }
     
-    main > .center > .board-name{
+    main > .boardcenter > .board-name{
       border-radius: 10px;
       background-color: rgba(255, 255, 255, .5);
       height: fit-content;
     }
-    main > .center .bname{
+    main > .boardcenter .bname{
       margin: 5px;
       padding-top: 10px;
       padding-bottom: 10px;
@@ -217,12 +217,12 @@
       background-color: rgba(242, 182, 210, .6);
       font-size: 1.3rem;
     }
-    main > .center > .write{
+    main > .boardcenter > .write{
       border-radius: 10px;
       background-color: rgba(255, 255, 255, .8);
     }
 
-    main > .center > .write > a > .wname{
+    main > .boardcenter > .write > a > .wname{
       padding: 10px;
       font-size: 1.1rem;
       /* border: 1px solid #f25ea3; */
@@ -230,40 +230,40 @@
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
     }
-    main > .center > .write > a > .wcontent{
+    main > .boardcenter > .write > a > .wcontent{
       padding: 10px;
       font-size: 1rem;
       /* border: 1px solid #f25ea3; */
     }
-    main > .center > .write > a > time{
+    main > .boardcenter > .write > a > time{
       padding-left: 10px;
       padding-right: 10px;
       /* border: 1px solid #f25ea3; */
       font-size: 0.9rem;
     }
-    main > .center > .write > a > .nickname{
+    main > .boardcenter > .write > a > .nickname{
       /* border: 1px solid #f25ea3; */
       display: inline-block;
       font-size: 0.9rem;
     }
-    main > .center > .write > a > .status{
+    main > .boardcenter > .write > a > .status{
       /* border: 1px solid #f25ea3; */
       display: flex;
       justify-content: flex-end;
       font-size: 0.9rem;
       margin-bottom: 2px;
     }
-    main > .center > .write > a > .status img{
+    main > .boardcenter > .write > a > .status img{
       height: 20px;
       margin-right: 2px;
     }
-    main > .center > .write > a > .status > .good{
+    main > .boardcenter > .write > a > .status > .good{
       /* background-color: #05C7F2; */
       display: flex;
       align-items: center;
       padding-right: 10px;
     }
-    main > .center > .write > a > .status > .comment{
+    main > .boardcenter > .write > a > .status > .comment{
       /* background-color: fuchsia; */
       display: flex;
       align-items: center;
@@ -301,12 +301,12 @@
       height: 30px;      
     }
 
-    .writepage{
+    .writebox{
       /* background-color: red; */
       width: 100%;
       display: none;
     }
-    .writepage > form{
+    .writebox > form{
       margin: 5px;
       margin-top: 0px;
       padding: 5px;
@@ -317,7 +317,7 @@
       border-radius: 10px;
     }
 
-    .writepage img{
+    .writebox img{
       height: 100%;
     }
 
@@ -344,7 +344,7 @@
       background-color: rgba(255, 255, 255, .9);
     }
 
-    .writepage > form > button{
+    .writebox > form > button{
       display: flex;
       justify-content: center;
       align-items: center;
@@ -357,11 +357,11 @@
       background-color: rgba(242, 94, 163, .3);
       color: #fff;
     }
-    .writepage > form > button > img{
+    .writebox > form > button > img{
       height: 90%;
     }
 
-    .writepage > form > button:hover{
+    .writebox > form > button:hover{
       background-color: rgba(242, 94, 163, .5);
     }
 
@@ -380,14 +380,14 @@
     </div>
   </header>
   <main>
-    <div class="center">
+    <div class="boardcenter">
       <div class="board-name"><a class="bname" href="#">자유게시판</a></div>
       <div class="newwrite">
         <a href="#" class="newwriteheader">
           <p>새 글을 작성해주세요!</p>
           <img src="board_resource/kirby_icon8.png">
         </a>
-        <div class="writepage">
+        <div class="writebox">
           <form action="#">
             <input type="text" name="writename" id="writename" placeholder="글제목">
             <textarea name="writecontent" id="writecontent" placeholder="글내용"></textarea>
@@ -624,14 +624,13 @@
 
   <script>
     document.querySelector(".newwriteheader").addEventListener("click", () => {
-      let writepage = document.querySelector(".writepage");
-      if( writepage.style.display == "block"){
-        writepage.style.display = "none";
+      let writebox = document.querySelector(".writebox");
+      if( writebox.style.display == "block"){
+        writebox.style.display = "none";
       }
       else{
-        writepage.style.display = "block";
+        writebox.style.display = "block";
       }
-      // writepage.setAttribute("autofocus", "autofocus");
     });
   </script>
 </body>
